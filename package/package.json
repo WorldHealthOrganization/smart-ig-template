@@ -1,0 +1,13 @@
+{
+  "name": "who.fhir.template",
+  "version": "0.0.1",
+  "type": "fhir.template",
+  "license": "CC0-1.0",
+  "description": "WHO FHIR Template",
+  "author": "World Health Organization",
+  "canonical": "http://github.com/who-int/ig-template-who",
+  "base": "fhir.base.template",
+  "dependencies": {
+    "fhir.base.template": "0.0.1"
+  }
+}
