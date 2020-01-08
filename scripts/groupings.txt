@@ -1,6 +1,10 @@
 <grouping xmlns="http://hl7.org/fhir" id="_dyn_activitydefinition">
   <name value="Behavior: Activity Definitions"/>
-  <description value="These Activity Definitions."/>
+  <description value="These are Activity Definitions used by Plan Definitions as possible results/recommendations."/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_dyn_plandefinition">
+  <name value="Behavior: Plan Definitions"/>
+  <description value="These are the Plan Definitions."/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_dyn_capabilitystatement">
   <name value="Behavior: Capability Statements"/>
@@ -17,6 +21,10 @@
 <grouping xmlns="http://hl7.org/fhir" id="_str_graphdefinition">
   <name value="Structures: Graph Definitions"/>
   <description value="These define collections of interrelated resources that are useful to pass around as a group"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_str_library">
+  <name value="Structures: Libraries"/>
+  <description value="The Library resources that define the logic."/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_str_logicalmodel">
   <name value="Structures: Logical Models"/>
