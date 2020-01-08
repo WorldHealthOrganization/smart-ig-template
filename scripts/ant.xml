@@ -76,7 +76,7 @@
       <fileset dir="${dir.template.includes}" includes="*"/>
     </copy>
     <xslt basedir="${dir.input}/includes" includes="*.xml" destdir="${dir.temp.includes}" extension=".xml" style="${ig.scripts}/processPages.xslt"/>
-    <xslt basedir="${dir.input}/pagecontent" includes="*.xml" destdir="${dir.temp.includes}" extension=".xml" style="${ig.scripts}/processPages.xslt"/>
+    <xslt basedir="${dir.input}/pages" includes="*.xml" destdir="${dir.temp.includes}" extension=".xml" style="${ig.scripts}/processPages.xslt"/>
   </target>
   <target name="onGenerate.artifactList" depends="onGenerate.processIg,onGenerate.setup">
     <xslt in="${onGenerate.ig.dest}xml" out="${dir.temp.includes}/artifacts.xml" style="${ig.scripts}/createArtifactSummary.xslt"/>
