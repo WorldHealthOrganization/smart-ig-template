@@ -125,10 +125,6 @@
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
-      <xsl:with-param name="value" select="'input/resources/measure'"/>
-    </xsl:call-template>
-    <xsl:call-template name="setParameter">
-      <xsl:with-param name="code" select="'path-resource'"/>
       <xsl:with-param name="value" select="'input/resources/plandefinition'"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
