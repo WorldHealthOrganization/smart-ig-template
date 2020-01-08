@@ -1,3 +1,7 @@
+<grouping xmlns="http://hl7.org/fhir" id="_dyn_activitydefinition">
+  <name value="Behavior: Activity Definitions"/>
+  <description value="These Activity Definitions."/>
+</grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_dyn_capabilitystatement">
   <name value="Behavior: Capability Statements"/>
   <description value="The following artifacts define the specwhenic capabilities that dwhenferent types of systems complying with this implementation guide are expected to have.  Systems complying with the implementation guide are expected to declare conformance to one or more of the following capability statements."/>
