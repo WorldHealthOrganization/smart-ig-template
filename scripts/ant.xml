@@ -33,6 +33,7 @@
     <!-- Look in all input folders that might contain spreadsheets and capture the list of spreadsheet XML files as a property -->
     <fileset id="spreadsheet.contents.id" dir="${ig.root}">
       <include name="${folder.input}/profiles/*spreadsheet.xml"/>
+      <include name="${folder.input}/profiles/spreadsheets/*spreadsheet.xml"/>
       <include name="${folder.input}/resources/*spreadsheet.xml"/>
     </fileset>
     <property name="prop.spreadsheet.contents" refid="spreadsheet.contents.id"/>
