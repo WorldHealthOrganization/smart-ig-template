@@ -86,12 +86,12 @@
     <!-- <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
       <xsl:with-param name="value" select="'input/capabilities'"/>
-    </xsl:call-template>
+    </xsl:call-template> -->
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
       <xsl:with-param name="value" select="'input/examples'"/>
     </xsl:call-template>
-    <xsl:call-template name="setParameter">
+    <!-- <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
       <xsl:with-param name="value" select="'input/extensions'"/>
     </xsl:call-template>
