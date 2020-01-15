@@ -6,8 +6,8 @@
   "description": "WHO FHIR Template",
   "author": "World Health Organization",
   "canonical": "http://github.com/who-int/ig-template-who",
-  "base": "cqf.fhir.template",
+  "base": "cqf.fhir.content.template",
   "dependencies": {
-    "fhir.base.template": "0.0.1"
+    "cqf.fhir.content.template": "0.0.1"
   }
 }
