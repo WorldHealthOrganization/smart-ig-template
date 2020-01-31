@@ -1,4 +1,4 @@
 # ig-template-who
-Template used for WHO implementation guides for FHIR.
+Template used for WHO FHIR Content Implementation Guides.
 
-Based on HL7 template: https://github.com/HL7/ig-template-base
+Based on CQ Framework's base template for FHIR Content Implementation Guides - https://github.com/cqframework/cqf-content-ig-template
