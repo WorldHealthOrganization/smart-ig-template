@@ -1,0 +1,15 @@
+{
+    "package-id" : "who.fhir.template",
+    "title" : "WHO FHIR Template",
+    "canonical" : "http://fhir.org/templates/who.fhir.template",
+    "introduction" : "This is the basic template",
+    "list" : [
+      {
+        "version" : "current",
+        "desc" : "Continuous Integration Build (latest in version control)",
+        "path" : "https://build.fhir.org/ig/who-ing/ig-template-who",
+        "status" : "ci-build",
+        "current" : true
+      }
+    ]
+  }
