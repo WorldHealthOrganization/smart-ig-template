@@ -8,6 +8,6 @@
   "canonical": "http://github.com/who-int/ig-template-who",
   "base": "cqf.fhir.content.template",
   "dependencies": {
-    "cqf.fhir.content.template": "current"
+    "cqf.fhir.template": "current"
   }
 }
