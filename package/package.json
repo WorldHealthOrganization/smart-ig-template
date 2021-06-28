@@ -5,7 +5,7 @@
   "license": "CC0-1.0",
   "description": "WHO FHIR Template",
   "author": "World Health Organization",
-  "canonical": "http://github.com/who-int/ig-template-who",
+  "canonical": "http://github.com/WorldHealthOrganization/smart-ig",
   "base": "cqf.fhir.template",
   "dependencies": {
     "cqf.fhir.template": "current"
