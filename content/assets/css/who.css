@@ -2,14 +2,14 @@
 :root {
   --navbar-bg-color: #008dc9; /* 2. Header container color */
   --footer-bg-color: #505050; /* 3. Footer background color*/
-  --footer-container-color: #008dc9; /* 4. Footer container color */
-  --btn-hover-color: #d86422;  /* 6. Menu button hover color */
+  --footer-container-bg-color: #008dc9; /* 4. Footer container color */
+  --btn-hover-color: #0070A1;  /* 6. Menu button hover color */
 }
 
 /* Generic settings common to all content IGs */
 :root {
   --stripe-bg-color: #999999; /* 5. Header strip color */
-  --btn-active-color: #d86422; /* 7. Menu button active color */
+  --btn-active-color: #0070A1; /* 7. Menu button active color */
   --btn-text-color: #e6e6e6; /* 8. Menu button text color */
   --stu-note-background-color: #fff2ff; /* 19. (STU) Note box background color */
   --stu-note-border-left-color: #ffa0ff; /* 20. (STU) Note box border color */
