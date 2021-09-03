@@ -10,6 +10,15 @@
         "path" : "https://build.fhir.org/ig/WorldHealthOrganization/smart-ig",
         "status" : "ci-build",
         "current" : true
-      }
+      },
+      {
+        "version": "0.1.0",
+        "desc": "First release",
+        "path": "http://fhir.org/templates/who.fhir.template/0.1.0",
+        "status": "release",
+        "sequence": "Publications",
+        "current": true,
+        "date": "2021-09-03"
+      }        
     ]
   }
