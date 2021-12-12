@@ -109,6 +109,10 @@ table.checklist td {
     background-color: LightBlue;
 }
 
+table.checklist tr {
+   border-top: 1px solid CornflowerBlue;
+}
+
 
 figure img {
     display: block;
