@@ -127,3 +127,9 @@ figure figcaption {
     margin-right: auto;
     margin-top: 4px;
 }
+
+
+em {
+    color: ForestGreen;
+    text-decoration: underline;
+}
