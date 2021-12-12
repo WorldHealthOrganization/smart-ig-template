@@ -72,3 +72,39 @@
   color: red;
   font-weight: bold;
 }
+
+
+dl dd {
+    padding-left: 20px;
+}
+dl dl {
+    padding-left: 20px;
+}
+
+table.checklist  {
+    width: 100%;
+}
+
+
+table.checklist td.checklist-section {
+    width: 10%;
+}
+
+table.checklist td.checklist-required {
+    width: 8%;
+}
+
+table.checklist td.checklist-description {
+    width: 30%;
+}
+table.checklist td.checklist-artifacts {
+    width: 30%;
+}
+
+table.checklist th {
+    background-color: CornflowerBlue;
+}
+
+table.checklist td {
+    background-color: LightBlue;
+}
