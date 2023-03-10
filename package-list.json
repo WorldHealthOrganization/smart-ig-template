@@ -28,6 +28,15 @@
         "status": "release",
         "sequence": "Publications",
         "current": true
+      },
+      {
+        "version": "0.2.0",
+        "date": "2023-03-10",
+        "desc": "Update to remove CQF Fhir Template 0.2.0 dependancy",
+        "path": "http://fhir.org/templates/who.fhir.template/0.2.0",
+        "status": "release",
+        "sequence": "Publications",
+        "current": true
       }
     ]
   }
