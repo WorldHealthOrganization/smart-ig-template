@@ -37,6 +37,15 @@
         "status": "release",
         "sequence": "Publications",
         "current": true
+      },
+      {
+        "version": "0.3.0",
+        "date": "2023-06-13",
+        "desc": "Add form preview",
+        "path": "http://fhir.org/templates/who.fhir.template/0.3.0",
+        "status": "release",
+        "sequence": "Publications",
+        "current": true
       }
     ]
   }
