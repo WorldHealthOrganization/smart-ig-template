@@ -27,7 +27,7 @@
         "path": "http://fhir.org/templates/who.fhir.template/0.1.0",
         "status": "release",
         "sequence": "Publications",
-        "current": true
+        "current": false
       },
       {
         "version": "0.2.0",
@@ -36,7 +36,7 @@
         "path": "http://fhir.org/templates/who.fhir.template/0.2.0",
         "status": "release",
         "sequence": "Publications",
-        "current": true
+        "current": false
       },
       {
         "version": "0.3.0",
