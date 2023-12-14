@@ -1,5 +1,5 @@
 {
-  "name": "who.fhir.template",
+  "name": "who.template",
   "version": "0.3.0",
   "type": "fhir.template",
   "license": "CC0-1.0",
