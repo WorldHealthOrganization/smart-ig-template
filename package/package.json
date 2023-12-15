@@ -1,11 +1,11 @@
 {
-  "name": "who.template",
-  "version": "0.3.0",
+  "name": "who.template.root",
+  "version": "0.4.0",
   "type": "fhir.template",
   "license": "CC0-1.0",
-  "description": "WHO FHIR Template",
+  "description": "WHO FHIR IG Template",
   "author": "World Health Organization",
-  "canonical": "http://github.com/WorldHealthOrganization/smart-ig",
+  "canonical": "http://github.com/WorldHealthOrganization/smart-ig-template-who",
   "base": "fhir.base.template",
   "dependencies": {
     "fhir.base.template": "current"
