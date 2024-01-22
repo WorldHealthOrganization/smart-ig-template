@@ -532,21 +532,20 @@ div.markdown-toc {
 #ig-status p {
   background-color: white; /* White background for the text */
   padding: 10px 17px; /* Add some padding around the text */
-  
   border-radius: 5px; /* Optional: for rounded corners */
   position: relative; /* Ensure it's above the watermark */
   z-index: 2; /* Higher z-index to be on top */
 }
 
 
-#ig-status.draft {
+#ig-status.ig-status-draft {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150px' height='150px'><rect width='800%' height='100%' fill='transparent' /><text transform='translate(30, 50) rotate(-35)' fill='rgba(245,45,45,0.5)' font-family='Arial' font-weight='bold' font-size='20'>DRAFT</text></svg>");
   background-size: calc(50% / 5) 100px;
   background-repeat: repeat-x;
 }
 
 
-#ig-status.retired {
+#ig-status.ig-status-retired {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150px' height='150px'><rect width='800%' height='100%' fill='transparent' /><text transform='translate(30, 60) rotate(-35)' fill='rgba(245,45,45,0.5)' font-family='Arial' font-weight='bold' font-size='20'>RETIRED</text></svg>");
   background-size: calc(50% / 5) 100px;
   background-repeat: repeat-x;
