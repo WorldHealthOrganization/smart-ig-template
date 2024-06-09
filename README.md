@@ -1,6 +1,4 @@
-# smart-ig-template-who
+# WHO SMART Guidelines FHIR IG Template
 
-Template used for WHO FHIR Content Implementation Guides.
-
-
+**This template may only be used for ImplementationGuides that are authored by the World Health Organization.**
 

@@ -1,51 +1,24 @@
 {
-    "package-id" : "who.fhir.template",
-    "title" : "WHO FHIR Template",
-    "canonical" : "http://fhir.org/templates/who.fhir.template",
+    "package-id" : "who.template.root",
+    "title" : "WHO FHIR IG Template",
+    "canonical" : "http://fhir.org/templates/who.template.root",
     "introduction" : "This is the base template for WHO content implementation guides",
     "list" : [
       {
         "version" : "current",
         "desc" : "Continuous Integration Build (latest in version control)",
-        "path" : "https://build.fhir.org/ig/WorldHealthOrganization/smart-ig",
+        "path" : "https://build.fhir.org/ig/WorldHealthOrganization/smart-ig-template-who",
         "status" : "ci-build",
         "current" : true
       },
       {
-        "version" : "0.0.2",
-        "date" : "2021-11-11",
-        "desc" : "First Release",
-        "path" : "http://fhir.org/templates/who.fhir.template/0.0.2",
+        "version" : "0.4.0",
+        "date" : "2023-12-15",
+        "desc" : "New Release",
+        "path" : "http://fhir.org/templates/who.template.root/0.4.0",
         "status" : "release",
         "sequence" : "Publications",
-        "current" : false
-      },
-      {
-        "version": "0.1.0",
-        "date": "2023-01-09",
-        "desc": "Update to CQF Fhir Template 0.2.0",
-        "path": "http://fhir.org/templates/who.fhir.template/0.1.0",
-        "status": "release",
-        "sequence": "Publications",
-        "current": false
-      },
-      {
-        "version": "0.2.0",
-        "date": "2023-03-10",
-        "desc": "Update to remove CQF Fhir Template 0.2.0 dependancy",
-        "path": "http://fhir.org/templates/who.fhir.template/0.2.0",
-        "status": "release",
-        "sequence": "Publications",
-        "current": false
-      },
-      {
-        "version": "0.3.0",
-        "date": "2023-06-13",
-        "desc": "Add form preview",
-        "path": "http://fhir.org/templates/who.fhir.template/0.3.0",
-        "status": "release",
-        "sequence": "Publications",
-        "current": true
+        "current" : true
       }
     ]
   }
