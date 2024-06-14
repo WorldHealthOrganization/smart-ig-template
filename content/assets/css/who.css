@@ -601,7 +601,7 @@ div.markdown-toc {
 }
 
 .info-box .info-title:before {
-  font-family: 'Font Awesome 6 Free';
+  font-family: 'Font Awesome 5 Free';
   content: ""; /* This will be dynamically filled based on the class */
   margin-right: 10px;
   display: block;
