@@ -62,8 +62,21 @@
               </div>  <!-- /.nav-collapse -->
 
               <div class="sf_colsIn col-md-8  navbar-right-container" data-sf-element="LanguageSelectorSearch" data-placeholder-label="Language Selector and Search" style="display: flex; justify-content: flex-end; align-items: center;">
-                <!-- This div will be pushed to the right -->
-                <div class="language-selector" style="margin-left: auto; background-color: #00477d; color: white;">
+                <!-- Search Container -->
+                {% if site.data.features.enable_client_side_search %}
+                <div style="margin-right: 20px; position: relative;" class="search-container">
+                  <button id="search-button" class="search-icon">
+                    <i class="fas fa-search"></i>
+                  </button>
+                  <input id="search-box" placeholder="Search..." type="text" class="search-input"></input>
+                  <ul id="search-results"></ul>
+                </div>
+                <script src="assets/js/searchfunction.js" type="text/javascript"> </script>
+                <script type="text/javascript" src="assets/js/lunr.min.js"></script>
+                {% endif %}
+
+                <!-- Language Selector -->
+                <div class="language-selector" style="background-color: #00477d; color: white;">
                   <i class="fa fa-language fa-lg"></i>
                   <label for="language-selector"> </label>
                   <select onChange="openLink(value)" id="language-selector" name="language-selector">
@@ -72,7 +85,6 @@
                   </select>
                   <i class="fas fa-angle-down"></i>
                 </div>
-                <!-- Search Content -->
               </div>
             </div>  <!-- /.container -->
           </nav>  <!-- /.navbar -->
