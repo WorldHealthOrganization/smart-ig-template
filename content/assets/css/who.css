@@ -658,3 +658,90 @@ div.markdown-toc {
 }
 
 
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative; /* Ensures the search results are positioned relative to this container */
+}
+
+.search-icon {
+  background-color: var(--navbar-bg-color);
+  border: none !important;
+  padding: 10px !important;
+  cursor: pointer !important;
+  color: white !important;
+}
+
+.search-icon i {
+  font-size: 20px !important;
+  color: white !important;
+}
+
+.search-input {
+  width: 0 !important;
+  padding: 10px !important;
+  border: 0px solid #ccc !important;
+  outline: none !important;
+  transition: width 0.3s, background-color 0.3s, opacity 0.3s !important;
+  background-color: #0069ba !important;
+  color: white !important;
+  position: absolute !important;
+  right: 50px !important; /* Ensure it appears to the left of the button */
+  opacity: 0 !important;
+}
+
+.search-input::placeholder {
+  color: white !important; /* Change placeholder text color to white */
+}
+
+.search-input.visible {
+  width: 200px !important;
+  opacity: 1 !important;
+}
+
+#search-results {
+  width: 1000px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute; /* Position relative to the search-container */
+  top: 40px; /* Adjust based on your layout */
+  left: -200px; /* Align to the left of the search box */
+  right: 0; /* Extend to the end of the page */
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none; /* Hidden by default */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+#search-results li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#search-results li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+#search-results li a.filename {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #1a0dab; /* Google-like link color */
+}
+
+#search-results li a.snippet {
+  margin-top: 5px;
+  color: #333;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+#search-results li:hover {
+  background-color: #f0f0f0;
+}
