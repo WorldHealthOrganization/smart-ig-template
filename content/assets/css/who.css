@@ -355,8 +355,8 @@ h6 {
 
 /* Style for the language selector to auto-margins push it to the right */
 .language-selector {
-  margin-left: auto;
-  /* This pushes the language selector to the right */
+ /* margin-left: auto;*/
+  /* This pushes the language selector to the right , but the search to the left which is no longer intended */
 }
 
 
