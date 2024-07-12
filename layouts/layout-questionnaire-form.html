@@ -59,20 +59,24 @@
 
                 // Create a map of the expanded ValueSets, indexed by url.
                 var expandedValueSets = {};
-                exps.entry.forEach(function (entry) {
-                  var resource = entry.resource;
-                  if (resource.resourceType === 'ValueSet') {
-                    expandedValueSets[resource.url] = resource;
-                  }
-                });
+                if (exps && Array.isArray(exps.entry)) {
+                  exps.entry.forEach(function (entry) {
+                    var resource = entry.resource;
+                    if (resource.resourceType === 'ValueSet') {
+                      expandedValueSets[resource.url] = resource;
+                    }
+                  });
+                }
 
                 // Create a set of the existing contained ValueSets, serialized as strings.
                 var containedValueSets = new Set();
-                fhirQ.contained.forEach(function (contained) {
-                  if (contained.resourceType == 'ValueSet') {
-                    containedValueSets.add(JSON.stringify(contained));
-                  }
-                });
+                if (fhirQ && Array.isArray(fhirQ.contained)) {
+                  fhirQ.contained.forEach(function (contained) {
+                    if (contained.resourceType == 'ValueSet') {
+                      containedValueSets.add(JSON.stringify(contained));
+                    }
+                  });
+                }
 
                 // Replace the contained ValueSets with the expanded versions, if they exist and are not already in the set.
                 Object.keys(expandedValueSets).forEach(function (url) {
