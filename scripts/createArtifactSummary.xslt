@@ -32,7 +32,7 @@
         </xsl:when>
         <!-- If neither f:definition/f:grouping nor f:definition/f:resource are present -->
         <xsl:otherwise>
-          <p>This specification doesn't contain technical artifacts.</p>
+          <p><b>This content is not yet available. The page will be updated as soon as the content is ready to be shared.</b></p>
         </xsl:otherwise>
       </xsl:choose>
 
