@@ -1,168 +1,35 @@
 ---
 ---
 {% include fragment-pagebegin.html %}
-<div style="counter-reset: section {{section}}" class="col-12">
-    <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
-    {% include fragment-quest-navtabs.html type='{{[type]}}' id='{{[id]}}' active='form' %}
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+
+
+  {% include fragment-quest-navtabs.html type='{{[type]}}' id='{{[id]}}' active='form' %}
 
 
   <a name="root"> </a>
-  <h2 id="root">Form: {{site.data.pages[page.path].title}}</h2>
+  <h2 id="root">{{site.data.pages[page.path].title}}</h2>
 
   <br/>
+  <p>This is a simplified preview of the Questionnaire resource.</p>
+  <p>For a fully functional rendering, please consult the list of <a href="https://confluence.hl7.org/display/FHIRI/SDC+Implementations">SDC Implementations</a>, namely those implementing the Form Designer or Form Filler actor.</p>
 
-<div id="formContainer"></div>
+<div id=formContainer></div>
 <br> </br>
 
-    <div class="bs-example">
-      <!-- Button HTML (to Trigger Modal) -->
-      <button type="button" class="btn btn-lg btn-primary" onclick="showQR()">Show QuestionnaireResponse</button>
-      <!-- Modal HTML -->
-      <div id="myModal" class="modal fade" tabindex="-1">
-          <div class="modal-dialog" style="position: unset; width:70%;">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <div class="modal-title">QuestionnaireResponse  
-                        <button title="" class="btn-copy" data-clipboard-target="#qrjson" data-original-title="Click to copy QR as JSON">
-                        </button>
-                      <button type="button" class="close" data-dismiss="modal">&times;</button></div>
-                  </div>
-                  <textarea style="margin: 2%; width:96%; min-width:96%; max-width:96%; min-height:350px;" id="qrjson" class="modal-body copy-text">
-                  </textarea>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                  </div>
-              </div>
-          </div>
-        </div>
-      </div>
     <br> </br>
     
-    <!-- <script src="{{site.data.info.assets}}assets/js/lforms.min.js"></script>
-    <script src="{{site.data.info.assets}}assets/js/lformsFHIR.min.js"></script> -->
-
-    
-    <script src="./assets/js/zone.min.js"></script>
-    <script src="./assets/js/runtime.js"></script>
-    <script src="./assets/js/polyfills.js"></script>
-    <script src="./assets/js/scripts.js"></script>
-    <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/lformsFHIRAll.min.js"></script>
+    <script src="{{site.data.info.assets}}assets/js/lforms.min.js"></script>
+    <script src="{{site.data.info.assets}}assets/js/lformsFHIR.min.js"></script>
 
  
     <script>
-  
-        var fhirQ = {% include {{[type]}}-{{[id]}}.json %}
-
-        $.getJSON("expansions.json", function (data) {
-                var exps = data;
-
-                // Create a map of the expanded ValueSets, indexed by url.
-                var expandedValueSets = {};
-                if (exps && Array.isArray(exps.entry)) {
-                  exps.entry.forEach(function (entry) {
-                    var resource = entry.resource;
-                    if (resource.resourceType === 'ValueSet') {
-                      expandedValueSets[resource.url] = resource;
-                    }
-                  });
-                }
-
-                // Create a set of the existing contained ValueSets, serialized as strings.
-                var containedValueSets = new Set();
-                if (fhirQ && Array.isArray(fhirQ.contained)) {
-                  fhirQ.contained.forEach(function (contained) {
-                    if (contained.resourceType == 'ValueSet') {
-                      containedValueSets.add(JSON.stringify(contained));
-                    }
-                  });
-                }
-
-                // Replace the contained ValueSets with the expanded versions, if they exist and are not already in the set.
-                Object.keys(expandedValueSets).forEach(function (url) {
-                  if (url in expandedValueSets && !containedValueSets.has(JSON.stringify(expandedValueSets[url]))) {
-                    containedValueSets.add(JSON.stringify(expandedValueSets[url]));
-                  }
-                });
-
-                // Replace the 'contained' array with the deserialized values of the set.
-                fhirQ.contained = Array.from(containedValueSets, JSON.parse);
-
-                // Debug outputs
-                console.log(listValueSets(fhirQ));
-                console.log(fhirQ);
-
-                // Add the form to the page
-                LForms.Util.addFormToPage(fhirQ, 'formContainer');
-              }).fail(function () {
-                console.log("An error has occurred.");
-              });
-
-              function updateValueSetsInQuestionnaire(obj) {
-                if (obj.hasOwnProperty('answerValueSet')) {
-                    let valueSetReference = obj['answerValueSet'];
-                    if (valueSetReference.startsWith('#')) {
-                        // It's a canonical reference; find the corresponding URL in contained resources
-                        let valueSetId = valueSetReference.substring(1); // Remove the '#' prefix
-                        let containedValueSet = fhirQ.contained.find(vs => vs.id === valueSetId && vs.resourceType === 'ValueSet');
-                        if (containedValueSet) {
-                            // Update canonical reference with URL
-                            obj['answerValueSet'] = containedValueSet.url;
-                        }
-                    }
-                }
-                
-                if (obj.hasOwnProperty('item')) {
-                    obj['item'].forEach(function(item) {
-                        updateValueSetsInQuestionnaire(item);
-                    });
-                }
-            }
-
-            // Use this function to update the Questionnaire
-            updateValueSetsInQuestionnaire(fhirQ);              
-
-
-              // Function to list ValueSets
-              function listValueSets(obj, found = []) {
-                if (obj.hasOwnProperty('answerValueSet')) {
-                  let valueSetReference = obj['answerValueSet'];
-                  if (valueSetReference.startsWith('#')) {
-                    // It's a canonical reference; find the corresponding URL in contained resources
-                    let valueSetId = valueSetReference.substring(1); // Remove the '#' prefix
-                    let containedValueSet = fhirQ.contained.find(vs => vs.id === valueSetId && vs.resourceType === 'ValueSet');
-                    if (containedValueSet) {
-                      // Replace canonical reference with URL
-                      valueSetReference = containedValueSet.url;
-                    }
-                  }
-                  found.push(valueSetReference);
-                }
-
-                if (obj.hasOwnProperty('item')) {
-                  obj['item'].forEach(function (item) {
-                    listValueSets(item, found);
-                  });
-                }
-                return found;
-              }
-
-              // Function to show QR code
-              function showQR() {
-                var qr = LForms.Util.getFormFHIRData('QuestionnaireResponse', 'R4');
-                console.log(JSON.stringify(qr, null, 2))
-                $("#qrjson").text(JSON.stringify(qr, null, 2));
-                $("#myModal").modal('show');
-              }
-
-
+      var fhirQ = {% include {{[type]}}-{{[id]}}.json %};
     </script>
-    
-
-
+    <script src="{{site.data.info.assets}}assets/js/loadquestionnaire.js"></script>
 
 
 
 {% assign includetabscripts = 'true' %}
-</div>
 {% include fragment-pageend.html %}
