@@ -1,92 +1,96 @@
+document.addEventListener("DOMContentLoaded", function () {
+  var formContainer = document.getElementById("formContainer");
 
-$.getJSON("expansions.json", function(data){
+  if (!formContainer) {
+      console.error("Error: formContainer not found!");
+      return;
+  }
 
-    if (typeof fhirQ !== 'undefined') {
-       delete fhirQ.text;
-     
- 
-    exps = data;
-    // Define a FHIR Questionnaire
-    delete fhirQ.text;
-    // find the valuesets contained and replace them with the expanded version
-    if(fhirQ.hasOwnProperty('contained')){
-      fhirQ.contained.forEach(function (contained, i) {
-        if (contained.resourceType == 'ValueSet'){
-          vset = contained;
-          if (("entry" in exps)&&(exps.entry.some(e => e.resource.id === vset.id))){
-            contained = exps.entry.find(e => e.resource.id === vset.id).resource;
-            fhirQ.contained[i] = contained
+  var type = formContainer.dataset.type;  // Read from data attribute
+  var id = formContainer.dataset.id;      // Read from data attribute
+
+  if (!type || !id) {
+      console.error("Error: Missing type or id attributes in formContainer.");
+      return;
+  }
+
+  // Dynamically construct the JSON filename based on type and id
+  var jsonUrl = `${type}-${id}.json`;
+
+  // Fetch the FHIR Questionnaire JSON
+  fetch(jsonUrl)
+      .then(response => {
+          if (!response.ok) {
+              throw new Error(`Error loading ${jsonUrl}: ${response.statusText}`);
           }
-        }
-      });
-    }  
- 
-    function listValueSets(obj, found2)
-      {
-        found2=[];
-        if (obj.hasOwnProperty('answerValueSet')){
-              url = obj['answerValueSet'];
-              found2.push(url);
-            };
-        if (obj.hasOwnProperty('item')){
-          obj['item'].forEach(function (item) {
-            var subtree=listValueSets(item, found2);
-            if (Array.isArray(subtree) && subtree.length){
-              found2.push(listValueSets(item, found2));
-            }
-          })
-        }
-        return found2
-      };
- 
- 
-      var otherValueSets = listValueSets(fhirQ);
- 
-      if(Array.isArray(otherValueSets) && otherValueSets.length){
-        otherValueSets.forEach(function (vsURL, i) {
-          if (("entry" in exps)&&(exps.entry.some(e => e.resource.url === vsURL[i]))){
-            newContainedVS = exps.entry.find(e => e.resource.url === vsURL[i]).resource;
-            if (!fhirQ.hasOwnProperty('contained')) {fhirQ.contained=[]}
-            fhirQ.contained.push(newContainedVS);
- //                console.log("added URL:"+vsURL);       
-          } 
-        });
-      };
- 
- //        console.log(listValueSets(fhirQ));        
- 
- 
-    function findById(o, id) {
-      //Early return
-      if( o.id === id ){
-        return o;
-      }
-      var result, p; 
-      for (p in o) {
-          if( o.hasOwnProperty(p) && typeof o[p] === 'object' ) {
-              result = findById(o[p], id);
-              if(result){
-                  return result;
+          return response.json();
+      })
+      .then(fhirQ => {
+          delete fhirQ.text;
+          return fetch("expansions.json").then(response => {
+              if (!response.ok) {
+                  throw new Error("Error loading expansions.json: " + response.statusText);
               }
-          }
+              return response.json();
+          }).then(exps => {
+              processFHIRQuestionnaire(fhirQ, exps);
+          });
+      })
+      .catch(error => console.error("Error in loading JSON data:", error));
+
+  /**
+   * Processes the FHIR Questionnaire by replacing contained ValueSets with expanded versions
+   * and adding external ValueSets if found in expansions.json.
+   */
+  function processFHIRQuestionnaire(fhirQ, exps) {
+      if (fhirQ.hasOwnProperty('contained')) {
+          fhirQ.contained.forEach(function (contained, i) {
+              if (contained.resourceType === 'ValueSet') {
+                  var vset = contained;
+                  if (exps.entry && exps.entry.some(e => e.resource.id === vset.id)) {
+                      fhirQ.contained[i] = exps.entry.find(e => e.resource.id === vset.id).resource;
+                  }
+              }
+          });
       }
-      return result;
-    }
- 
-    // Add the form to the page
-    LForms.Util.addFormToPage(fhirQ, 'formContainer');
-    
-    // Define the function for showing the QuestionnaireResponse
-    function showQR() {
-      var qr = LForms.Util.getFormFHIRData('QuestionnaireResponse', 'R4');
-      window.alert(JSON.stringify(qr, null, 2));
-    }
- 
- 
-    }
- 
-  }).fail(function(){
-        console.log("An error has occurred.");
-  })
- 
- 
+
+      // Find and add missing external ValueSets
+      var otherValueSets = listValueSets(fhirQ);
+      if (Array.isArray(otherValueSets) && otherValueSets.length) {
+          otherValueSets.forEach(function (vsURL) {
+              if (exps.entry && exps.entry.some(e => e.resource.url === vsURL)) {
+                  var newContainedVS = exps.entry.find(e => e.resource.url === vsURL).resource;
+                  if (!fhirQ.hasOwnProperty('contained')) {
+                      fhirQ.contained = [];
+                  }
+                  fhirQ.contained.push(newContainedVS);
+              }
+          });
+      }
+
+      // Add the form to the page
+      LForms.Util.addFormToPage(fhirQ, 'formContainer');
+
+      // Define the function for showing the QuestionnaireResponse
+      window.showQR = function () {
+          var qr = LForms.Util.getFormFHIRData('QuestionnaireResponse', 'R4');
+          window.alert(JSON.stringify(qr, null, 2));
+      };
+  }
+
+  /**
+   * Recursively finds all ValueSet URLs referenced in a Questionnaire
+   */
+  function listValueSets(obj) {
+      var found = [];
+      if (obj.hasOwnProperty('answerValueSet')) {
+          found.push(obj['answerValueSet']);
+      }
+      if (obj.hasOwnProperty('item')) {
+          obj['item'].forEach(function (item) {
+              found = found.concat(listValueSets(item));
+          });
+      }
+      return found;
+  }
+});
