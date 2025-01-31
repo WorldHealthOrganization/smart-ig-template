@@ -15,7 +15,11 @@
   <p>This is a simplified preview of the Questionnaire resource.</p>
   <p>For a fully functional rendering, please consult the list of <a href="https://confluence.hl7.org/display/FHIRI/SDC+Implementations">SDC Implementations</a>, namely those implementing the Form Designer or Form Filler actor.</p>
 
-<div id=formContainer></div>
+<div id="formContainer" 
+  data-type="{{[type]}}" 
+  data-id="{{[id]}}">
+</div>
+
 <br> </br>
 
     <br> </br>
@@ -23,10 +27,7 @@
     <script src="{{site.data.info.assets}}assets/js/lforms.min.js"></script>
     <script src="{{site.data.info.assets}}assets/js/lformsFHIR.min.js"></script>
 
- 
-    <script>
-      var fhirQ = {% include {{[type]}}-{{[id]}}.json %};
-    </script>
+
     <script src="{{site.data.info.assets}}assets/js/loadquestionnaire.js"></script>
 
 
