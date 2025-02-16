@@ -1,0 +1,6 @@
+{% capture content %}
+{% include_relative {{ include.file }} %}
+{% endcapture %}
+```gherkin
+{{ content }}
+```
