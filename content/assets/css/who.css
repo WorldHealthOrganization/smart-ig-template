@@ -458,7 +458,17 @@ body {
 .nav-collapse,
 .collapse,
 .navbar-inverse-collapse {
-  background-color: #cec
+  background-color: var(--navbar-bg-color);
+  color: white;
+}
+
+.navbar-inverse-collapse a {
+  color: white !important;
+}
+
+.navbar-inverse-collapse a:hover,
+.navbar-inverse-collapse a:focus {
+  color: #ccc !important;
 }
 
 
