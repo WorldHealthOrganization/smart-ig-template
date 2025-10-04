@@ -8,6 +8,6 @@
   "canonical": "http://github.com/WorldHealthOrganization/smart-ig-template-who",
   "base": "fhir.base.template",
   "dependencies": {
-    "fhir.base.template": "current"
+    "fhir.base.template": "1.0.0"
   }
 }
