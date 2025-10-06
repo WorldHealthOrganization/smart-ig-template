@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-/* WHO Content IGs */
+/* WHO Content IGs - Light Theme (Default) */
 :root {
   --ig-status-text-color: #00376d;
   /* 1. IG Title and status text color */
@@ -18,6 +18,41 @@
   --must-color: #4d0000;
   --should-color: #4d4000;
   --may-color: #00004d;
+  
+  /* Theme-specific variables */
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --content-bg-color: #f6f7f9;
+  --border-color: #e1e1e1;
+  --card-bg-color: #ffffff;
+  --table-header-bg: CornflowerBlue;
+  --table-row-bg: LightBlue;
+  --image-bg-color: transparent;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --ig-status-text-color: #87ceeb;
+  --navbar-bg-color: #1a1a1a;
+  --footer-bg-color: #2d2d2d;
+  --footer-container-bg-color: #1a1a1a;
+  --btn-hover-color: #4da6d9;
+  --ig-header-color: #2d2d2d;
+  --toc-box-border: #4da6d9;
+  --toc-box-bg-color: #2d2d2d;
+  --must-color: #ff6b6b;
+  --should-color: #ffd93d;
+  --may-color: #6bcf7f;
+  
+  /* Theme-specific variables */
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --content-bg-color: #2d2d2d;
+  --border-color: #404040;
+  --card-bg-color: #2d2d2d;
+  --table-header-bg: #4da6d9;
+  --table-row-bg: #3a3a3a;
+  --image-bg-color: #ffffff;
 }
 
 
@@ -152,11 +187,11 @@ table.checklist td.checklist-artifacts {
 }
 
 table.checklist th {
-  background-color: CornflowerBlue;
+  background-color: var(--table-header-bg);
 }
 
 table.checklist td {
-  background-color: LightBlue;
+  background-color: var(--table-row-bg);
 }
 
 table.checklist tr {
@@ -168,6 +203,15 @@ figure img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  background-color: var(--image-bg-color);
+  padding: 4px;
+  border-radius: 4px;
+}
+
+/* Ensure all images have proper background in themes */
+img {
+  background-color: var(--image-bg-color);
+  border-radius: 2px;
 }
 
 figure figcaption {
@@ -204,8 +248,8 @@ em {
   display: none;
   position: absolute;
   z-index: 1;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
   border-top: none;
   padding: 0;
   list-style: none;
@@ -223,14 +267,15 @@ em {
   display: block;
   padding: 8px 25px 8px 15px;
   /* Adjust padding to make space for the caret */
-  color: #333;
+  color: var(--text-color);
   text-decoration: none;
   position: relative;
 }
 
 .dropdown-menu>li>a:hover,
 .dropdown-menu>li>a:focus {
-  background-color: #f8f9fa;
+  background-color: var(--btn-hover-color);
+  color: white;
 }
 
 /* Existing caret styles */
@@ -351,12 +396,41 @@ h6 {
   /* Align items to the end (right) */
   height: 100%;
   /* Make sure the container stretches full height */
+  gap: 10px;
+  /* Add space between theme toggle and language selector */
 }
 
-/* Style for the language selector to auto-margins push it to the right */
+/* Theme toggle button styles */
+.theme-toggle {
+  background-color: var(--navbar-bg-color);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--btn-hover-color);
+}
+
+.theme-toggle i {
+  margin-right: 5px;
+}
+
+/* Style for the language selector */
 .language-selector {
-  margin-left: auto;
-  /* This pushes the language selector to the right */
+  background-color: var(--navbar-bg-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 
@@ -369,40 +443,24 @@ h6 {
 }
 
 .language-selector {
-  background-color: #00477d;
-  /* Blue background */
+  background-color: var(--navbar-bg-color);
   color: white;
-  /* White text */
   display: flex;
   align-items: center;
   padding: 5px 10px;
-  /* Adjust padding as needed */
   border-radius: 5px;
-  /* Optional: if you want rounded corners */
-}
-
-.language-selector label {
-  margin-right: 10px;
-  /* Spacing between label and the select box */
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .language-selector select {
-  background-color: #00477d;
-  /* Blue background */
+  background-color: var(--navbar-bg-color);
   color: white;
-  /* White text */
   border: none;
-  /* Remove default border */
   -webkit-appearance: none;
-  /* Remove default arrow from webkit browsers */
   -moz-appearance: none;
-  /* Remove default arrow from Mozilla browsers */
   appearance: none;
-  /* Remove default arrow */
   padding: 5px;
-  /* Adjust padding as needed */
   margin-right: 5px;
-  /* Space before the icon */
 }
 
 .language-selector .fa-caret-down {
@@ -419,7 +477,9 @@ h6 {
 
 body {
   font-family: 'Noto Sans', sans-serif !important;
-  height: fit-content !important
+  height: fit-content !important;
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
 }
 
 td,
@@ -436,8 +496,8 @@ p, li {
   width: 100% !important;
   max-width: none !important;
   /* Reset any max-width that might be applied elsewhere */
-  background-color: var(--toc-box-bg-color) !important;
-  color: #000 !important;
+  background-color: var(--content-bg-color) !important;
+  color: var(--text-color) !important;
   padding: 0 20px
     /* Add 20px padding on all sides */
 }
@@ -452,7 +512,7 @@ p, li {
 }
 
 body {
-  background-color: var(--toc-box-bg-color) !important;
+  background-color: var(--bg-color) !important;
 }
 
 .nav-collapse,
@@ -551,8 +611,9 @@ div.markdown-toc {
 }
 
 #ig-status p {
-  background-color: white;
-  /* White background for the text */
+  background-color: var(--card-bg-color);
+  /* Background for the text */
+  color: var(--text-color);
   padding: 10px 17px;
   /* Add some padding around the text */
   border-radius: 5px;
@@ -581,11 +642,12 @@ div.markdown-toc {
 
 
 .info-box {
-  border: 2px solid #004080;
+  border: 2px solid var(--border-color);
   border-radius: 7px;
   padding: 10px;
   margin: 10px 0;
-  background-color: #f0f0f0;
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
   position: relative;
   font-size: 0.9em;
   line-height: 1.6;  

@@ -62,8 +62,14 @@
               </div>  <!-- /.nav-collapse -->
 
               <div class="sf_colsIn col-md-8  navbar-right-container" data-sf-element="LanguageSelectorSearch" data-placeholder-label="Language Selector and Search" style="display: flex; justify-content: flex-end; align-items: center;">
-                <!-- This div will be pushed to the right -->
-                <div class="language-selector" style="margin-left: auto; background-color: #00477d; color: white;">
+                <!-- Theme Toggle Button -->
+                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+                  <i class="fas fa-moon" id="theme-icon"></i>
+                  <span id="theme-text">Dark</span>
+                </button>
+                
+                <!-- Language Selector -->
+                <div class="language-selector">
                   <i class="fa fa-language fa-lg"></i>
                   <label for="language-selector"> </label>
                   <select onChange="openLink(value)" id="language-selector" name="language-selector">
