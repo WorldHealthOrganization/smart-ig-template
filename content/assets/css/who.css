@@ -6,6 +6,10 @@
   /* 1. IG Title and status text color */
   --navbar-bg-color: #00477d;
   /* 2. Header container color */
+  --navbar-text-color: #ffffff;
+  /* 2a. Navbar text color */
+  --navbar-text-hover-color: #cccccc;
+  /* 2b. Navbar text hover color */
   --footer-bg-color: #505050;
   /* 3. Footer background color*/
   --footer-container-bg-color: #00477d;
@@ -458,7 +462,17 @@ body {
 .nav-collapse,
 .collapse,
 .navbar-inverse-collapse {
-  background-color: #cec
+  background-color: var(--navbar-bg-color);
+  color: var(--navbar-text-color);
+}
+
+.navbar-inverse-collapse a {
+  color: var(--navbar-text-color) !important;
+}
+
+.navbar-inverse-collapse a:hover,
+.navbar-inverse-collapse a:focus {
+  color: var(--navbar-text-hover-color) !important;
 }
 
 
