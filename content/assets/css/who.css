@@ -458,7 +458,7 @@ body {
 .nav-collapse,
 .collapse,
 .navbar-inverse-collapse {
-  background-color: #cec
+  background-color:  var(--navbar-bg-color);
 }
 
 
