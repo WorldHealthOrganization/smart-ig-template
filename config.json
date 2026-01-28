@@ -46,8 +46,6 @@
     "Questionnaire": {
       "template-base": "template/layouts/layout-questionnaire.html",
       "template-form": "template/layouts/layout-questionnaire-form.html",
-      "template-testing": "template/layouts/layout-canonical-testing.html",
-      "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "form": "{{[type]}}-{{[id]}}-form.html",
       "template-format": "template/layouts/layout-questionnaire-format.html",
