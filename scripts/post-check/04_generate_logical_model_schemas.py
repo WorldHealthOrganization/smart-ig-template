@@ -600,12 +600,15 @@ class SchemaGenerator:
     def save_schema(self, schema: Dict[str, Any], output_dir: str, model_name: str) -> Optional[str]:
         """Save a JSON schema to a file."""
         try:
-            # Ensure output directory exists
-            Path(output_dir).mkdir(parents=True, exist_ok=True)
-            
+            # Save to schemas subdirectory to avoid conflicts with IG Publisher
+            # The IG Publisher scans for StructureDefinition-*.json files and would
+            # incorrectly try to parse these JSON Schema files as FHIR resources
+            schema_output_dir = os.path.join(output_dir, "schemas")
+            Path(schema_output_dir).mkdir(parents=True, exist_ok=True)
+
             # Create filename with StructureDefinition- prefix to match FHIR canonicals
             filename = f"StructureDefinition-{model_name}.schema.json"
-            filepath = os.path.join(output_dir, filename)
+            filepath = os.path.join(schema_output_dir, filename)
             
             # Save schema
             with open(filepath, 'w', encoding='utf-8') as f:
@@ -787,7 +790,8 @@ def main():
         try:
             # Save to protected location that won't be overwritten by IG publisher
             protected_path = "input/temp/qa_logical_model_schemas.json"
-            backup_path = "/tmp/qa_logical_model_schemas.json"
+            import tempfile
+            backup_path = os.path.join(tempfile.gettempdir(), "qa_logical_model_schemas.json")
             qa_reporter.save_report(protected_path, backup_path)
         except Exception as e:
             logger.error(f"Error saving QA report: {e}")
