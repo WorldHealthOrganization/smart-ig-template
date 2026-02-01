@@ -458,7 +458,7 @@ body {
 .nav-collapse,
 .collapse,
 .navbar-inverse-collapse {
-  background-color: #cec
+  background-color: var(--navbar-bg-color);
 }
 
 
@@ -701,4 +701,5 @@ div.markdown-toc {
     background-color: #f0f0f0;  /* Light gray background */
     color: #000;  /* Black text */
     cursor: pointer;
+
 }
