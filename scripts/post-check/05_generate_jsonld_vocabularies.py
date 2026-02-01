@@ -20,6 +20,7 @@ import json
 import os
 import sys
 import logging
+import tempfile
 from typing import Dict, List, Optional, Any
 from pathlib import Path
 from datetime import datetime
@@ -632,11 +633,13 @@ def save_jsonld_vocabulary(jsonld_vocab: Dict[str, Any], output_dir: str, values
     
     try:
         # Ensure output directory exists
-        Path(output_dir).mkdir(parents=True, exist_ok=True)
-        
+        # Save into a subfolder to avoid the IG Publisher misinterpreting generated artifacts
+        schema_output_dir = os.path.join(output_dir, "vocabulary")
+        Path(schema_output_dir).mkdir(parents=True, exist_ok=True)
+
         # Create filename with ValueSet- prefix and .jsonld extension
         filename = f"ValueSet-{valueset_id}.jsonld"
-        filepath = os.path.join(output_dir, filename)
+        filepath = os.path.join(schema_output_dir, filename)
         
         # Save JSON-LD vocabulary
         with open(filepath, 'w', encoding='utf-8') as f:
@@ -877,7 +880,7 @@ def main():
         try:
             # Save to protected location that won't be overwritten by IG publisher
             protected_path = "input/temp/qa_jsonld_vocabularies.json"
-            backup_path = "/tmp/qa_jsonld_vocabularies.json"
+            backup_path = os.path.join(tempfile.gettempdir(), "qa_jsonld_vocabularies.json")
             qa_reporter.save_report(protected_path, backup_path)
         except Exception as e:
             logger.error(f"Error saving QA report: {e}")
