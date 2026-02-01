@@ -1,8 +1,45 @@
 {
+  "script": "scripts/ant-who.xml",
+  "otherScripts" : ["scripts/ant-who.xml", "scripts/ant.xml"],
+  "template-parameters": ["copyrightyear", "excludelogbinaryformat", "excludejson", "excludemap", "excludettl", "excludexml", "fmm-definition", "globals-in-artifacts", "releaselabel", "shownav"],
+  "_pre-process-documentation": "This array of objects indicates data being converted from existing files using scripts to support dependency checking when performing continuous builds",
   "extraTemplates": [
     {
       "name": "form",
       "description": "Form"
+    }
+  ],
+  "pre-process": [
+    {
+      "folder": "input/includes",
+      "relativePath": "_includes"
+    },
+    {
+      "folder": "fsh-generated/includes",
+      "relativePath": "_includes"
+    },
+    {
+      "folder": "input/data",
+      "relativePath": "_data"
+    },
+    {
+      "folder": "input/resourcedocs",
+      "relativePath": "_data"
+    },
+    {
+      "folder": "input/intro-notes",
+      "relativePath": "_includes",
+      "transform": "template/scripts/processPages.xslt"
+    },
+    {
+      "folder": "input/pagecontent",
+      "relativePath": "_includes",
+      "transform": "template/scripts/processPages.xslt"
+    },
+    {
+      "folder": "input/pages",
+      "relativePath": "_includes",
+      "transform": "template/scripts/processPages.xslt"
     }
   ],
   "defaults": {
@@ -11,10 +48,9 @@
       "template-form": "template/layouts/layout-questionnaire-form.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "form": "{{[type]}}-{{[id]}}-form.html",
-
       "template-format": "template/layouts/layout-questionnaire-format.html",
       "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html"
-   
     }
   }
 }
+

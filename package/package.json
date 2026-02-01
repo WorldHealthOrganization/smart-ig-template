@@ -1,6 +1,6 @@
 {
   "name": "who.template.root",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "type": "fhir.template",
   "license": "CC0-1.0",
   "description": "WHO FHIR IG Template",
