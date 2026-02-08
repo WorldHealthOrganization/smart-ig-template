@@ -1185,6 +1185,17 @@ def main():
     logger.info("=== JSON-LD FILE DETECTION PHASE ===")
     jsonld_files = schema_detector.find_jsonld_files(schema_output_dir)
 
+    # Also check output/vocabulary/ (where 05_generate_jsonld_vocabularies writes)
+    vocabulary_dir = os.path.join(output_dir, "vocabulary")
+    if os.path.exists(vocabulary_dir):
+        jsonld_files_vocab = schema_detector.find_jsonld_files(vocabulary_dir)
+        # Deduplicate by filename
+        existing_names = {os.path.basename(f) for f in jsonld_files}
+        for f in jsonld_files_vocab:
+            if os.path.basename(f) not in existing_names:
+                jsonld_files.append(f)
+                existing_names.add(os.path.basename(f))
+
     # Detect existing OpenAPI
     logger.info("=== OPENAPI FILE DETECTION PHASE ===")
     openapi_files_source = openapi_detector.find_openapi_files(openapi_dir)
