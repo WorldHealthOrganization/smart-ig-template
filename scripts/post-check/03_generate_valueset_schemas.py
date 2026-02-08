@@ -909,12 +909,14 @@ def save_schema(schema: Dict[str, Any], output_dir: str, valueset_id: str) -> Op
     logger = logging.getLogger(__name__)
     
     try:
-        # Ensure output directory exists
-        Path(output_dir).mkdir(parents=True, exist_ok=True)
+        # Save to schemas subdirectory to match 06_generate_dak_api_hub expectations
+        # and to avoid conflicts with IG Publisher output files
+        schema_output_dir = os.path.join(output_dir, "schemas")
+        Path(schema_output_dir).mkdir(parents=True, exist_ok=True)
         
         # Create filename with ValueSet- prefix
         filename = f"ValueSet-{valueset_id}.schema.json"
-        filepath = os.path.join(output_dir, filename)
+        filepath = os.path.join(schema_output_dir, filename)
         
         # Save schema
         with open(filepath, 'w', encoding='utf-8') as f:
@@ -943,12 +945,13 @@ def save_display_file(display_file: Dict[str, Any], output_dir: str, valueset_id
     logger = logging.getLogger(__name__)
     
     try:
-        # Ensure output directory exists
-        Path(output_dir).mkdir(parents=True, exist_ok=True)
+        # Save to schemas subdirectory to match 06_generate_dak_api_hub expectations
+        schema_output_dir = os.path.join(output_dir, "schemas")
+        Path(schema_output_dir).mkdir(parents=True, exist_ok=True)
         
         # Create filename with ValueSet- prefix
         filename = f"ValueSet-{valueset_id}.displays.json"
-        filepath = os.path.join(output_dir, filename)
+        filepath = os.path.join(schema_output_dir, filename)
         
         # Save display file
         with open(filepath, 'w', encoding='utf-8') as f:
