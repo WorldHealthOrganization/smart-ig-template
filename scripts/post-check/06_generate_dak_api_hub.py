@@ -1145,11 +1145,11 @@ def main():
     # Validate output dir
     qa_reporter.add_file_expected(output_dir)
     if not os.path.exists(output_dir):
-        logger.error(f"Output directory does not exist: {output_dir}")
-        qa_reporter.add_error(f"Output directory does not exist: {output_dir}")
-        merged = qa_reporter.finalize_report("failed")
+        logger.warning(f"Output directory does not exist: {output_dir} — skipping DAK API hub generation")
+        qa_reporter.add_warning(f"Output directory does not exist: {output_dir}")
+        merged = qa_reporter.finalize_report("skipped")
         qa_reporter.save_to_file(os.path.join("output", "qa.json"), merged)
-        sys.exit(1)
+        sys.exit(0)
 
     logger.info(f"Output directory exists with {len(os.listdir(output_dir))} items")
     qa_reporter.add_success(f"Output directory exists with {len(os.listdir(output_dir))} items")
@@ -1219,9 +1219,9 @@ def main():
             logger.info(f"Total files in HTML target directory: {len(all_files)}")
             logger.info(f"HTML files: {len(html_files)} found")
             logger.info(f"Files containing 'dak': {[f for f in all_files if 'dak' in f.lower()]}")
-        logger.error("❌ Cannot find dak-api.html in output directory")
-        logger.error("Make sure the IG publisher ran first and created dak-api.html from dak-api.md placeholder.")
-        sys.exit(1)
+        logger.warning("dak-api.html not found in output directory — skipping DAK API hub generation")
+        logger.warning("To enable, create a dak-api.md page so the IG publisher generates dak-api.html.")
+        sys.exit(0)
 
     with open(dak_api_html_path, "r", encoding="utf-8") as f:
         template_content = f.read()
