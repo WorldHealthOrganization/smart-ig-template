@@ -6,7 +6,7 @@
   "description": "WHO FHIR IG Template",
   "author": "World Health Organization",
   "canonical": "http://github.com/WorldHealthOrganization/smart-ig-template-who",
-  "base": "fhir.base.template",
+  "base": "fhir.base.template.a",
   "dependencies": {
     "fhir.base.template.a": "1.0.0"
   }
