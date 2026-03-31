@@ -16,12 +16,17 @@
   <!-- Import the base template's ant.xml -->
   <import file="ant.xml" as="base"/>
 
+  <!-- Python executable: "python" on Windows, "python3" elsewhere -->
+  <condition property="python.exe" value="python" else="python3">
+    <os family="windows"/>
+  </condition>
+
   <!-- Macrodef to run a Python script with standard args -->
   <macrodef name="runPythonScript">
     <attribute name="script"/>
     <sequential>
       <echo message="Running: @{script}"/>
-      <exec executable="python3" failonerror="true">
+      <exec executable="${python.exe}" failonerror="true">
         <arg value="@{script}"/>
         <arg value="${ig.root}"/>
       </exec>
@@ -33,7 +38,7 @@
     <attribute name="script"/>
     <sequential>
       <echo message="Running DAK processor: @{script}"/>
-      <exec executable="python3" failonerror="false">
+      <exec executable="${python.exe}" failonerror="false">
         <arg value="@{script}"/>
         <arg value="--output-dir"/>
         <arg value="${ig.root}/output"/>
@@ -47,7 +52,7 @@
   <target name="onLoad.runPostSushiScripts" extensionOf="onLoad.extend">
     <property name="post.sushi.scripts.dir" value="${ig.scripts}/post-sushi"/>
     <echo message="Running post-sushi scripts from ${post.sushi.scripts.dir}"/>
-    <apply executable="python3" failonerror="true" parallel="false">
+    <apply executable="${python.exe}" failonerror="true" parallel="false">
       <srcfile/>
       <arg value="${ig.root}"/>
       <sort>
@@ -64,7 +69,7 @@
     <echo message="##########################################################"/>
     <property name="post.generate.scripts.dir" value="${ig.scripts}/post-generate"/>
     <echo message="Running post-generate scripts from ${post.generate.scripts.dir}"/>
-    <apply executable="python3" failonerror="true" parallel="false">
+    <apply executable="${python.exe}" failonerror="true" parallel="false">
       <srcfile/>
       <arg value="${ig.root}"/>
       <sort>
@@ -88,7 +93,7 @@
 
     <!-- Run all scripts in alphabetical order -->
     <!-- No ig.root argument - scripts use relative paths from current working directory -->
-    <apply executable="python3" failonerror="true" parallel="false">
+    <apply executable="${python.exe}" failonerror="true" parallel="false">
       <srcfile/>
       <sort>
         <fileset dir="${post.check.scripts.dir}" includes="*.py" erroronmissingdir="false"/>
