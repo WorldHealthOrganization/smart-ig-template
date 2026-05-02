@@ -18,7 +18,7 @@
     <link href="{{site.data.info.assets}}assets/css/pygments-manni.css" rel="stylesheet"/>
     <link href="{{site.data.info.assets}}assets/css/jquery-ui.css" rel="stylesheet"/>
   	<link href="{{site.data.info.assets}}assets/css/prism.css" rel="stylesheet" />
-    {% include fragment-css.html %}
+    {% include fragment-css.html lang=include.lang %}
 
     <script type="text/javascript" src="fhir-table-scripts.js"> </script>
 
@@ -58,7 +58,7 @@
               </button>
               <a class="navbar-brand hidden" href="{{site.data.fhir.path}}index.html">FHIR</a>
               <div class="nav-collapse collapse navbar-inverse-collapse">
-                {% include menu.xml %}
+                {% include {{ include.lang }}/menu.xml %}
               </div>  <!-- /.nav-collapse -->
 
               <div class="sf_colsIn col-md-8  navbar-right-container" data-sf-element="LanguageSelectorSearch" data-placeholder-label="Language Selector and Search" style="display: flex; justify-content: flex-end; align-items: center;">
@@ -83,7 +83,7 @@
 
       <div class="container" style=" justify-content: space-between; align-items: left;">
 
-        {% include fragment-header.html %}
+        {% include fragment-header.html lang=include.lang %}
 {% if site.data.info.releaselabel != '' %} 
 {% assign status = site.data.info.releaselabel %}
 {% else %}
