@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE HTML>
-<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+{% assign baselang = include.lang | slice: 0,2 %}
+{% if "ar;dv;fa;ha;he;iw;ji;ps;sd;ug;ur;yi;" contains baselang %}
+{% assign dir = 'rtl' %}
+{% else %}
+{% assign dir = 'ltr' %}
+{% endif %}
+<html xml:lang="{{include.lang}}" xmlns="http://www.w3.org/1999/xhtml" lang="{{include.lang}}" dir="{{dir}}">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>{{site.data.pages[page.path].title | escape_once}} - {{site.data.fhir.ig.title | escape_once}} v{{site.data.fhir.ig.version | escape_once}}</title>
+    <title>{{site.data.pages[localPage].titlelang[include.lang] | escape_once}} - {{site.data.fhir.ig.title | escape_once}} v{{site.data.fhir.ig.version | escape_once}}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -21,6 +27,7 @@
     {% include fragment-css.html lang=include.lang %}
 
     <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+    <script type="text/javascript" src="{{site.data.info.assets}}assets/js/direction-management.js"> </script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -36,18 +43,20 @@
     <link rel="shortcut icon" href="{{site.data.info.assets}}assets/ico/favicon.png"/>
   </head>
   <body onload="document.body.style.opacity='1'">
-{% assign label = {{site.data.pages[page.path].label}} | split: '.0' %}
-	  <script src="{{site.data.info.assets}}assets/js/prism.js"></script>
+{% assign label = {{site.data.pages[localPage].label}} | split: '.0' %}
+	  <script type="text/javascript" src="{{site.data.info.assets}}assets/js/prism.js"></script>
+	  <script type="text/javascript" src="{{site.data.info.assets}}assets/js/prism-fhirpath.js"></script>
+	  <script type="text/javascript" src="{{site.data.info.assets}}assets/js/prism-cql.js"></script>
 
     <style type="text/css">h2{--heading-prefix:"{{site.data.info.headingOffset}}{{label}}"}
-    h3,h4,h5,h6{--heading-prefix:"{{site.data.info.headingOffset}}{{site.data.pages[page.path].label}}"}</style>
+    h3,h4,h5,h6{--heading-prefix:"{{site.data.info.headingOffset}}{{site.data.pages[localPage].label}}"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
 
-      <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="segment-navbar" class="segment" data-fhir="generated">  <!-- segment-navbar -->
         <div id="stripe"> </div>
         <div class="container">  <!-- container -->
           <!-- HEADER CONTENT -->
-  
+
           <nav class="navbar navbar-inverse">
             <!--status-bar-->
             <div class="container">
@@ -62,41 +71,42 @@
               </div>  <!-- /.nav-collapse -->
 
               <div class="sf_colsIn col-md-8  navbar-right-container" data-sf-element="LanguageSelectorSearch" data-placeholder-label="Language Selector and Search" style="display: flex; justify-content: flex-end; align-items: center;">
-                <!-- This div will be pushed to the right -->
+{% if site.data.languages.langs.size() != 1 %}
                 <div class="language-selector" style="margin-left: auto; background-color: #00477d; color: white;">
                   <i class="fa fa-language fa-lg"></i>
                   <label for="language-selector"> </label>
-                  <select onChange="openLink(value)" id="language-selector" name="language-selector">
-                    <option disabled selected>Select language</option>
-                    <option value="en" class="selected">English</option>
+                  <select onChange="if(this.value)window.location.href=this.value" id="language-selector" name="language-selector">
+{% for alang in site.data.languages.langs %}
+                    <option value="../{{alang.code}}/{{page.name}}"{% if alang.code == include.lang %} selected{% endif %}>{{alang.display}}</option>
+{% endfor %}
                   </select>
                   <i class="fas fa-angle-down"></i>
                 </div>
-                <!-- Search Content -->
+{% endif %}
               </div>
             </div>  <!-- /.container -->
           </nav>  <!-- /.navbar -->
         <!-- /HEADER CONTENT -->
         </div>  <!-- /container -->
       </div>  <!-- /segment-navbar -->
-      
+
 
       <div class="container" style=" justify-content: space-between; align-items: left;">
 
         {% include fragment-header.html lang=include.lang %}
-{% if site.data.info.releaselabel != '' %} 
-{% assign status = site.data.info.releaselabel %}
+{% if site.data.info.releaselabel != '' %}
+{% assign status = site.data.fhir.releaseLabellang[include.lang] %}
 {% else %}
 {% assign status = site.data.fhir.ig.status %}
 {% endif %}
-        <div id="ig-status" class="ig-status-{{site.data.fhir.ig.status}}">
-          <p><span style="font-size:12pt;font-weight:bold">{{site.data.fhir.ig.title | escape_once}}</span>
+        <div id="ig-status" class="ig-status-{{site.data.fhir.ig.status}}" data-fhir="generated">
+          <p><span style="font-size:12pt;font-weight:bold">{{site.data.fhir.ig.titlelang[include.lang] | escape_once}}</span>
             <br/>
             <span style="display:inline-block;">{{site.data.fhir.ig.version}} - {{status}}
 {% assign igId = site.data.fhir.ig.id | prepend: "ImplementationGuide/" %}
 {% for jurisdiction in site.data.resources[igId].jurisdictions %}
 {% if jurisdiction.flag %}
-  <img alt="{{jurisdiction.name}} flag" src="assets/images/{{jurisdiction.flag}}.svg" height="16" title="{{jurisdiction.name}}"/>
+  <img alt="{{jurisdiction.name}} {{site.data.stringsBase[include.lang]['CountryFlag']}}" src="assets/images/{{jurisdiction.flag}}.svg" height="16" title="{{jurisdiction.name}}"/>
 {% elsif jurisdiction.code %}
   <span title="{{jurisdiction.name}}">{{jurisdiction.code}}</span>
 {% else %}
@@ -112,18 +122,18 @@
 
     <!--status-bar-->
 {% assign shownav = site.data.info.shownav | downcase | slice: 0 %}
-    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+    <div id="segment-breadcrumb" class="segment" data-fhir="generated">  <!-- segment-breadcrumb -->
       <div class="container">  <!-- container -->
         <ul class="breadcrumb">
-          {{site.data.pages[page.path].breadcrumb}}
+          {{site.data.pages[localPage].breadcrumblang[include.lang]}}
 {% if shownav == 'y' %}
-          <span style="float:right;">
-{% if site.data.pages[page.path].previous %}
-            <a href="{{site.data.pages[page.path].previous}}">&lt;prev</a> | 
+          <span style="float: var(--ig-right);">
+{% if site.data.pages[localPage].previous %}
+            <a href="{{site.data.pages[localPage].previous}}">{{site.data.stringsBase[include.lang]['PrevPage'] | escape_once}}</a> |
 {% endif %}
-            <a href="#bottom">bottom</a>
-{% if site.data.pages[page.path].next %}
-          | <a href="{{site.data.pages[page.path].next}}">next&gt;</a>
+            <a href="#bottom">{{site.data.stringsBase[include.lang]['PageBottom']}}</a>
+{% if site.data.pages[localPage].next %}
+          | <a href="{{site.data.pages[localPage].next}}">{{site.data.stringsBase[include.lang]['NextPage'] | escape_once}}</a>
 {% endif %}
           </span>
 {% endif %}
