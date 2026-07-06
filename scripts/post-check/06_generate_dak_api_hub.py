@@ -1185,13 +1185,12 @@ def main():
     logger.info("=== JSON-LD FILE DETECTION PHASE ===")
     jsonld_files = schema_detector.find_jsonld_files(schema_output_dir)
 
-    # Also check output/vocabulary/ (where 05_generate_jsonld_vocabularies writes)
-    vocabulary_dir = os.path.join(output_dir, "vocabulary")
-    if os.path.exists(vocabulary_dir):
-        jsonld_files_vocab = schema_detector.find_jsonld_files(vocabulary_dir)
+    # Also check the IG output root (where 05_generate_jsonld_vocabularies writes)
+    if os.path.exists(output_dir):
+        jsonld_files_root = schema_detector.find_jsonld_files(output_dir)
         # Deduplicate by filename
         existing_names = {os.path.basename(f) for f in jsonld_files}
-        for f in jsonld_files_vocab:
+        for f in jsonld_files_root:
             if os.path.basename(f) not in existing_names:
                 jsonld_files.append(f)
                 existing_names.add(os.path.basename(f))
@@ -1267,7 +1266,8 @@ def main():
 
             displays_path = os.path.join(schema_output_dir, displays_filename)
             openapi_path = os.path.join(schema_output_dir, openapi_filename)
-            jsonld_path = os.path.join(schema_output_dir, jsonld_filename)
+            # 05_generate_jsonld_vocabularies writes ValueSet-*.jsonld to the IG output root
+            jsonld_path = os.path.join(output_dir, jsonld_filename)
 
             entry: Dict[str, Any] = {
                 "title": title,
@@ -1285,7 +1285,7 @@ def main():
                 logger.info(f"  Found OpenAPI file: {openapi_filename}")
 
             if os.path.exists(jsonld_path):
-                entry["jsonld_file"] = f"schemas/{jsonld_filename}"
+                entry["jsonld_file"] = jsonld_filename
                 logger.info(f"  Found JSON-LD file: {jsonld_filename}")
 
             schema_docs["valueset"].append(entry)

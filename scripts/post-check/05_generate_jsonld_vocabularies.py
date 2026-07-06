@@ -633,13 +633,13 @@ def save_jsonld_vocabulary(jsonld_vocab: Dict[str, Any], output_dir: str, values
     
     try:
         # Ensure output directory exists
-        # Save into a subfolder to avoid the IG Publisher misinterpreting generated artifacts
-        schema_output_dir = os.path.join(output_dir, "vocabulary")
-        Path(schema_output_dir).mkdir(parents=True, exist_ok=True)
+        # Write directly to the IG output root so files are served at /<ig>/ValueSet-{id}.jsonld
+        # (matches the @id / file URL embedded in each vocabulary)
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
 
         # Create filename with ValueSet- prefix and .jsonld extension
         filename = f"ValueSet-{valueset_id}.jsonld"
-        filepath = os.path.join(schema_output_dir, filename)
+        filepath = os.path.join(output_dir, filename)
         
         # Save JSON-LD vocabulary
         with open(filepath, 'w', encoding='utf-8') as f:
