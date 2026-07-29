@@ -270,9 +270,21 @@ def load_valueset_codesystem_fallback(output_dir: str) -> Optional[Dict[str, Any
                     if not system_url:
                         continue
 
-                    # Try to find and load the CodeSystem
-                    # Extract CodeSystem name from URL (last part after /CodeSystem/)
-                    if '/CodeSystem/' in system_url:
+                    # Per FHIR semantics, an explicit concept list restricts the
+                    # include to exactly those concepts (with their displays).
+                    # Only when there is no explicit list do we enumerate the whole
+                    # CodeSystem. Doing both would duplicate every code that appears
+                    # in both places (e.g. UP/TLS in KeyUsage-UAT).
+                    if include.get('concept'):
+                        for concept in include.get('concept', []):
+                            expansion_contains.append({
+                                'system': system_url,
+                                'code': concept.get('code', ''),
+                                'display': concept.get('display', concept.get('code', ''))
+                            })
+                    elif '/CodeSystem/' in system_url:
+                        # No explicit concept list: include the entire CodeSystem.
+                        # Extract CodeSystem name from URL (last part after /CodeSystem/)
                         cs_name = system_url.split('/CodeSystem/')[-1]
                         cs_filename = f"CodeSystem-{cs_name}.json"
                         cs_path = os.path.join(output_dir, cs_filename)
@@ -297,15 +309,6 @@ def load_valueset_codesystem_fallback(output_dir: str) -> Optional[Dict[str, Any
                                     'code': concept.get('code', ''),
                                     'display': concept.get('display', concept.get('code', ''))
                                 })
-
-                    # Handle explicit concept list in include
-                    if include.get('concept'):
-                        for concept in include.get('concept', []):
-                            expansion_contains.append({
-                                'system': system_url,
-                                'code': concept.get('code', ''),
-                                'display': concept.get('display', concept.get('code', ''))
-                            })
 
                 if expansion_contains:
                     # Add synthetic expansion to the ValueSet
@@ -466,20 +469,30 @@ def extract_valueset_codes_with_display(valueset_resource: Dict[str, Any], value
         logger.warning(f"ValueSet {valueset_id} expansion has no contains")
         return codes_with_display
     
-    # Extract codes, displays, and systems from contains array
+    # Extract codes, displays, and systems from contains array.
+    # Safeguard: de-duplicate by (system, code) so a single vocabulary never
+    # lists the same code twice, whatever the source of the duplicate. The key
+    # includes the system so a code that legitimately exists in two different
+    # code systems is still kept. First occurrence wins.
+    seen = set()
     for item in expansion['contains']:
         if 'code' in item:
+            dedup_key = (item.get('system', ''), item['code'])
+            if dedup_key in seen:
+                continue
+            seen.add(dedup_key)
+
             code_entry = {'code': item['code']}
             if 'display' in item and item['display'].strip():
                 code_entry['display'] = item['display']
             else:
                 # Fallback to code if no display is available or display is empty
                 code_entry['display'] = item['code']
-            
+
             # Include system URI if available
             if 'system' in item:
                 code_entry['system'] = item['system']
-            
+
             codes_with_display.append(code_entry)
     
     logger.info(f"Extracted {len(codes_with_display)} codes with displays and systems from ValueSet {valueset_id}")
