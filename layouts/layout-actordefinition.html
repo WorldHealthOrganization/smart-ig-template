@@ -1,16 +1,16 @@
 ---
 ---
-{% include fragment-pagebegin.html %}
+{% include fragment-pagebegin.html lang="{{[lang]}}" %}
 <div class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
-  {% include fragment-base-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
+  {% include fragment-base-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' lang="{{[lang]}}" %}
   <a name="root"> </a>
 
   <h2 id="root">{{[type]}}: {{site.data.pages[page.path].title | escape_once}}
 {% if site.data.resources[resource_].experimental == true %}(Experimental){% endif %}
   </h2>
 
-{% include fragment-resourceTable.html %}
+{% include fragment-resourceTable.html lang="{{[lang]}}" %}
 
 {%if site.data.resources[resource_].description %}
 <p>
@@ -23,7 +23,7 @@
 </p>
 {% endif %}
   <!-- insert intro if present -->
-  {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' %}
+  {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' lang="{{[lang]}}" %}
 
 <!--  <p>
   Formats: <a href="{{[type]}}-{{[id]}}.xml.html">XML</a>, <a href="{{[type]}}-{{[id]}}.json.html">JSON</a>, <a href="{{[type]}}-{{[id]}}.ttl.html">Turtle</a>
@@ -50,9 +50,9 @@
 
 
   <!-- insert notes if present -->
-  {% include fragment-notes.html type='{{[type]}}' id='{{[id]}}' %}
+  {% include fragment-notes.html type='{{[type]}}' id='{{[id]}}' lang="{{[lang]}}" %}
 
   {%include {{[type]}}-{{[id]}}-history.xhtml%}
 
 </div>
-{% include fragment-pageend.html %}
+{% include fragment-pageend.html lang="{{[lang]}}" %}

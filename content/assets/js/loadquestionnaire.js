@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then(fhirQ => {
           delete fhirQ.text;
-          return fetch("expansions.json").then(response => {
+          return fetch("../expansions.json").then(response => {
               if (!response.ok) {
                   throw new Error("Error loading expansions.json: " + response.statusText);
               }
