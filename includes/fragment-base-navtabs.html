@@ -4,6 +4,7 @@
   Keep in sync with the base template.
 {% endcomment %}
 {% assign formpage = include.type | append: '-' | append: include.id | append: '-form.html' %}
+{% assign whoStrings = site.data.stringsWHO[include.lang] | default: site.data.stringsWHO.en %}
 {% assign excludexml = site.data.info.excludexml | downcase | slice: 0 %}
 {% assign excludejson = site.data.info.excludejson | downcase | slice: 0 %}
 {% assign excludettl = site.data.info.excludettl | downcase | slice: 0 %}
@@ -36,11 +37,11 @@
 {% if include.type == 'Questionnaire' and site.data.pages[formpage] %}
   {% if include.active == 'form' %}
   <li class="active">
-    <a href="#">Form</a>
+    <a href="#">{{whoStrings.Form}}</a>
   </li>
   {% else %}
   <li>
-    <a href="{{formpage}}">Form</a>
+    <a href="{{formpage}}">{{whoStrings.Form}}</a>
   </li>
   {% endif %}
 {% endif %}

@@ -1,0 +1,49 @@
+# en -> zh
+
+#: WHOLogo
+msgid "World Health Organization"
+msgstr "世界卫生组织"
+
+#: VersionHistory
+msgid "Version History"
+msgstr "版本历史"
+
+#: License
+msgid "License"
+msgstr "许可"
+
+#: Feedback
+msgid "Feedback"
+msgstr "反馈"
+
+#: WatermarkDraft
+msgid "DRAFT"
+msgstr "草案"
+
+#: WatermarkRetired
+msgid "RETIRED"
+msgstr "已停用"
+
+#: NoteToBalloters
+msgid "Note To Balloters"
+msgstr "致投票者的说明"
+
+#: STUNote
+msgid "STU Note"
+msgstr "STU 说明"
+
+#: Form
+msgid "Form"
+msgstr "表单"
+
+#: FormPreview
+msgid "This is a simplified preview of the Questionnaire resource."
+msgstr "这是 Questionnaire 资源的简化预览。"
+
+#: FormFullRendering
+msgid "For a fully functional rendering, please consult the list of %LINK%, namely those implementing the Form Designer or Form Filler actor."
+msgstr "如需完整功能的呈现，请参阅 %LINK% 列表，特别是实现 Form Designer 或 Form Filler 角色的实现。"
+
+#: SDCImplementations
+msgid "SDC Implementations"
+msgstr "SDC 实现"

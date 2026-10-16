@@ -1,0 +1,49 @@
+# en -> ar
+
+#: WHOLogo
+msgid "World Health Organization"
+msgstr "منظمة الصحة العالمية"
+
+#: VersionHistory
+msgid "Version History"
+msgstr "سجل الإصدارات"
+
+#: License
+msgid "License"
+msgstr "الترخيص"
+
+#: Feedback
+msgid "Feedback"
+msgstr "ملاحظات"
+
+#: WatermarkDraft
+msgid "DRAFT"
+msgstr "مسودة"
+
+#: WatermarkRetired
+msgid "RETIRED"
+msgstr "ملغى"
+
+#: NoteToBalloters
+msgid "Note To Balloters"
+msgstr "ملاحظة للمصوّتين"
+
+#: STUNote
+msgid "STU Note"
+msgstr "ملاحظة STU"
+
+#: Form
+msgid "Form"
+msgstr "النموذج"
+
+#: FormPreview
+msgid "This is a simplified preview of the Questionnaire resource."
+msgstr "هذه معاينة مبسطة لمورد Questionnaire."
+
+#: FormFullRendering
+msgid "For a fully functional rendering, please consult the list of %LINK%, namely those implementing the Form Designer or Form Filler actor."
+msgstr "للحصول على عرض كامل الوظائف، يرجى الرجوع إلى قائمة %LINK%، ولا سيما تلك التي تنفذ دور Form Designer أو Form Filler."
+
+#: SDCImplementations
+msgid "SDC Implementations"
+msgstr "تطبيقات SDC"

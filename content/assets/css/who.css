@@ -99,7 +99,8 @@
 
 .note-to-balloters::before {
   white-space: pre;
-  content: "Note To Balloters\A ";
+  /* label translated in includes/_append.fragment-css.html */
+  content: var(--who-note-to-balloters, "Note To Balloters") "\A ";
   #background-color: yellow;
   color: red;
   font-weight: bold;
@@ -115,7 +116,8 @@
 
 .stu-note::before {
   white-space: pre;
-  content: "STU Note\A ";
+  /* label translated in includes/_append.fragment-css.html */
+  content: var(--who-stu-note, "STU Note") "\A ";
   #background-color: yellow;
   color: red;
   font-weight: bold;

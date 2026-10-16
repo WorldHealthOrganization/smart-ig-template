@@ -1,0 +1,16 @@
+{
+  "en": {
+    "WHOLogo": "World Health Organization",
+    "VersionHistory": "Version History",
+    "License": "License",
+    "Feedback": "Feedback",
+    "WatermarkDraft": "DRAFT",
+    "WatermarkRetired": "RETIRED",
+    "NoteToBalloters": "Note To Balloters",
+    "STUNote": "STU Note",
+    "Form": "Form",
+    "FormPreview": "This is a simplified preview of the Questionnaire resource.",
+    "FormFullRendering": "For a fully functional rendering, please consult the list of %LINK%, namely those implementing the Form Designer or Form Filler actor.",
+    "SDCImplementations": "SDC Implementations"
+  }
+}

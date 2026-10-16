@@ -1,6 +1,7 @@
 ---
 ---
 {% assign localPage = page.path | split: "/" | last %}
+{% assign whoStrings = site.data.stringsWHO['{{[lang]}}'] | default: site.data.stringsWHO.en %}
 {% include fragment-pagebegin.html lang="{{[lang]}}" %}
 <div class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
@@ -10,11 +11,12 @@
 
 
   <a name="root"> </a>
-  <h2 id="root">Questionnaire: {{site.data.resources[resource_].titlelang['{{[lang]}}'] | escape_once}} - Form</h2>
+  <h2 id="root">Questionnaire: {{site.data.resources[resource_].titlelang['{{[lang]}}'] | escape_once}} - {{whoStrings.Form}}</h2>
 
   <br/>
-  <p>This is a simplified preview of the Questionnaire resource.</p>
-  <p>For a fully functional rendering, please consult the list of <a href="https://confluence.hl7.org/display/FHIRI/SDC+Implementations">SDC Implementations</a>, namely those implementing the Form Designer or Form Filler actor.</p>
+  <p>{{whoStrings.FormPreview}}</p>
+{% capture sdclink %}<a href="https://confluence.hl7.org/display/FHIRI/SDC+Implementations">{{whoStrings.SDCImplementations}}</a>{% endcapture %}
+  <p>{{whoStrings.FormFullRendering | replace: "%LINK%", sdclink}}</p>
 
 <div id="formContainer" 
   data-type="{{[type]}}" 
