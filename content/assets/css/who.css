@@ -35,30 +35,9 @@
   /* 20. (STU) Note box border color */
 }
 
-#hl7-nav {
-  line-height: 50px;
-  float: left;
-  margin-top: 4px;
-}
-
-#hl7-nav a {
-  color: inherit;
-}
-
 #hl7-logo {
   float: left;
   margin-left: 6px;
-}
-
-#hl7-search {
-  line-height: 50px;
-  float: right;
-  margin-top: 4px;
-  color: maroon;
-}
-
-#hl7-search a {
-  color: inherit;
 }
 
 #project-nav {
@@ -79,12 +58,6 @@
   justify-content: flex-start;
   /* Aligns the content to the left */
   padding: 0 20px;
-}
-
-#project-logo {
-  float: left;
-  margin-left: 3px;
-
 }
 
 #who-logo {
