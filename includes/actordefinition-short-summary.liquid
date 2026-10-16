@@ -1,16 +1,18 @@
+{% comment %}
+  Short summary of an ActorDefinition: title, description, requirements and capabilities.
+  Parameters: actordefinition, lang.
+{% endcomment %}
+{% assign xvTitle = "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.title" %}
+{% assign xvDescription = "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.description" %}
+{% assign title = include.actordefinition.title %}
+{% unless title %}{% assign title = include.actordefinition.extension | where: "url", xvTitle | map: "valueString" | first %}{% endunless %}
+{% assign descr = include.actordefinition.description %}
+{% unless descr %}{% assign descr = include.actordefinition.extension | where: "url", xvDescription | map: "valueMarkdown" | first %}{% endunless %}
 
-
-
-{% assign title = actordefinition.title %}
-{% assign descr = actordefinition.description %}
-
-#### {{title}}
+<h4>{{title}}</h4>
 
 {{descr | markdownify}}
 
+{% include actordefinition-list-requirements.liquid site=site actordefinition=include.actordefinition lang=include.lang %}
 
-{% include actordefinition-list-requirements.liquid site=site actordefinition=actordefinition %}
-
-{% include actordefinition-list-capabilites.liquid site=site actordefinition=actordefinition %}
-
-
+{% include actordefinition-list-capabilites.liquid site=site actordefinition=include.actordefinition lang=include.lang %}

@@ -8,6 +8,12 @@
     }
   ],
   "defaults": {
+    "ActorDefinition": {
+      "template-base": "template/layouts/layout-actordefinition.html"
+    },
+    "Requirements": {
+      "template-base": "template/layouts/layout-requirements.html"
+    },
     "Questionnaire": {
       "template-form": "template/layouts/layout-questionnaire-form.html",
       "form": "{{[type]}}-{{[id]}}-form.html"

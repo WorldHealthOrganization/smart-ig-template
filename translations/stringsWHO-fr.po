@@ -47,3 +47,67 @@ msgstr "Pour un rendu entièrement fonctionnel, veuillez consulter la liste des 
 #: SDCImplementations
 msgid "SDC Implementations"
 msgstr "implémentations SDC"
+
+#: Publisher
+msgid "Publisher"
+msgstr "Éditeur"
+
+#: ContactEmail
+msgid "Contact Email"
+msgstr "Adresse électronique de contact"
+
+#: Jurisdiction
+msgid "Jurisdiction"
+msgstr "Juridiction"
+
+#: CapabilityStatements
+msgid "Capability Statements"
+msgstr "Déclarations de capacités"
+
+#: Requirements
+msgid "Requirements"
+msgstr "Exigences"
+
+#: Statements
+msgid "Statements"
+msgstr "Énoncés"
+
+#: DerivedFrom
+msgid "Derived from"
+msgstr "Dérivé de"
+
+#: Derivatives
+msgid "Derivatives"
+msgstr "Dérivés"
+
+#: ParticipatingActors
+msgid "Participating Actors"
+msgstr "Acteurs participants"
+
+#: NoPublisher
+msgid "No publisher has been registered."
+msgstr "Aucun éditeur n'a été enregistré."
+
+#: NoContactEmail
+msgid "No contact email has been registered."
+msgstr "Aucune adresse électronique de contact n'a été enregistrée."
+
+#: ActorCapabilities
+msgid "This actor fulfills the following capabilities:"
+msgstr "Cet acteur remplit les capacités suivantes :"
+
+#: ActorRequirements
+msgid "This actor fulfills the following requirements:"
+msgstr "Cet acteur remplit les exigences suivantes :"
+
+#: RequirementSteps
+msgid "Steps in the requirement:"
+msgstr "Étapes de l'exigence :"
+
+#: NotDerived
+msgid "This requirement is not derived from another requirement."
+msgstr "Cette exigence ne dérive pas d'une autre exigence."
+
+#: RequirementDerivatives
+msgid "This requirement has the following derivatives:"
+msgstr "Cette exigence a les dérivés suivants :"

@@ -1,58 +1,50 @@
 ---
 ---
-{% include fragment-pagebegin.html %}
+{% comment %}
+  WHO: copy of fhir2.base.template layouts/layout-canonical.html (72417a6), with the WHO actor summary
+  (actordefinition.liquid) in place of the generated narrative when the IG produces Jekyll data. Keep in sync with the base template.
+{% endcomment %}
+{% assign localPage = page.path | split: "/" | last %}
+{% include fragment-modelType.html type='{{[type]}}' id='{{[id]}}' lang="{{[lang]}}" %}
+{% include fragment-pagebegin.html lang="{{[lang]}}" %}
+<!-- layouts\layout-actordefinition (WHO) -->
 <div class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
-  {% include fragment-base-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
+  {% include fragment-base-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' lang="{{[lang]}}" %}
   <a name="root"> </a>
 
-  <h2 id="root">{{[type]}}: {{site.data.pages[page.path].title | escape_once}}
-{% if site.data.resources[resource_].experimental == true %}(Experimental){% endif %}
+{% assign respath = site.data.resources[resource_].path %}
+  <h2 id="root">{{modelType}}: {{site.data.pages[respath].titlelang['{{[lang]}}'] | escape_once}}
+{% if site.data.resources[resource_].experimental == true %}({{site.data.stringsBase['{{[lang]}}']['Experimental']}}){% endif %}
   </h2>
 
-{% include fragment-resourceTable.html %}
+{% include fragment-resourceTable.html lang="{{[lang]}}" %}
 
 {%if site.data.resources[resource_].description %}
-<p>
-{{site.data.resources[resource_].description|markdownify}}
-</p>
+<div data-fhir="generated">
+{{site.data.resources[resource_].descriptionlang['{{[lang]}}']|markdownify}}
+</div>
 {% endif %}
 {%if site.data.resources[resource_].purpose %}
-<p>
-{{site.data.resources[resource_].purpose|markdownify}}
-</p>
+<div data-fhir="generated">
+{{site.data.resources[resource_].purposelang['{{[lang]}}']|markdownify}}
+</div>
 {% endif %}
   <!-- insert intro if present -->
-  {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' %}
+  {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' lang="{{[lang]}}" %}
 
-<!--  <p>
-  Formats: <a href="{{[type]}}-{{[id]}}.xml.html">XML</a>, <a href="{{[type]}}-{{[id]}}.json.html">JSON</a>, <a href="{{[type]}}-{{[id]}}.ttl.html">Turtle</a>
-  </p>-->
-{% unless example %}
-  {% if '{{[type]}}' == 'CapabilityStatement' %}
-  <p>
-      <a href="{{[id]}}.openapi.json" no-download="true">Raw OpenAPI-Swagger Definition file</a> | <a href="{{[id]}}.openapi.json" download>Download</a>
-  </p>
-  {% endif %}
-{% endunless %}
-
-
-
-{% if '{{[type]}}' == 'ActorDefinition' %}
-  {% assign filestub = page.path | split: ".html" | first %} 
-  {% assign actordefinition = site.data[filestub] %} 
-  {% include actordefinition.liquid actordefinition=actordefinition site=site %}
-
+{% comment %} The WHO summary needs the resource as Jekyll data (IG parameter produce-jekyll-data); otherwise use the generated narrative {% endcomment %}
+{% assign actordefinition = site.data['{{[type]}}-{{[id]}}'] %}
+{% if actordefinition %}
+  {% include actordefinition.liquid actordefinition=actordefinition site=site lang="{{[lang]}}" %}
+{% else %}
+  {% include {{[type]}}-{{[id]}}-html{{[langsuffix]}}.xhtml %}
 {% endif %}
 
-
-
-
-
   <!-- insert notes if present -->
-  {% include fragment-notes.html type='{{[type]}}' id='{{[id]}}' %}
+  {% include fragment-notes.html type='{{[type]}}' id='{{[id]}}' lang="{{[lang]}}" %}
 
-  {%include {{[type]}}-{{[id]}}-history.xhtml%}
+  {% include {{[type]}}-{{[id]}}-history{{[langsuffix]}}.xhtml %}
 
 </div>
-{% include fragment-pageend.html %}
+{% include fragment-pageend.html lang="{{[lang]}}" %}

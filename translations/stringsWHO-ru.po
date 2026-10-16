@@ -47,3 +47,67 @@ msgstr "Для полнофункционального отображения �
 #: SDCImplementations
 msgid "SDC Implementations"
 msgstr "реализаций SDC"
+
+#: Publisher
+msgid "Publisher"
+msgstr "Издатель"
+
+#: ContactEmail
+msgid "Contact Email"
+msgstr "Адрес электронной почты для связи"
+
+#: Jurisdiction
+msgid "Jurisdiction"
+msgstr "Юрисдикция"
+
+#: CapabilityStatements
+msgid "Capability Statements"
+msgstr "Заявления о возможностях"
+
+#: Requirements
+msgid "Requirements"
+msgstr "Требования"
+
+#: Statements
+msgid "Statements"
+msgstr "Положения"
+
+#: DerivedFrom
+msgid "Derived from"
+msgstr "Производно от"
+
+#: Derivatives
+msgid "Derivatives"
+msgstr "Производные"
+
+#: ParticipatingActors
+msgid "Participating Actors"
+msgstr "Участвующие акторы"
+
+#: NoPublisher
+msgid "No publisher has been registered."
+msgstr "Издатель не зарегистрирован."
+
+#: NoContactEmail
+msgid "No contact email has been registered."
+msgstr "Адрес электронной почты для связи не зарегистрирован."
+
+#: ActorCapabilities
+msgid "This actor fulfills the following capabilities:"
+msgstr "Этот актор обеспечивает следующие возможности:"
+
+#: ActorRequirements
+msgid "This actor fulfills the following requirements:"
+msgstr "Этот актор выполняет следующие требования:"
+
+#: RequirementSteps
+msgid "Steps in the requirement:"
+msgstr "Шаги требования:"
+
+#: NotDerived
+msgid "This requirement is not derived from another requirement."
+msgstr "Это требование не является производным от другого требования."
+
+#: RequirementDerivatives
+msgid "This requirement has the following derivatives:"
+msgstr "У этого требования есть следующие производные:"

@@ -47,3 +47,67 @@ msgstr "للحصول على عرض كامل الوظائف، يرجى الرجو
 #: SDCImplementations
 msgid "SDC Implementations"
 msgstr "تطبيقات SDC"
+
+#: Publisher
+msgid "Publisher"
+msgstr "الناشر"
+
+#: ContactEmail
+msgid "Contact Email"
+msgstr "البريد الإلكتروني للاتصال"
+
+#: Jurisdiction
+msgid "Jurisdiction"
+msgstr "الولاية القضائية"
+
+#: CapabilityStatements
+msgid "Capability Statements"
+msgstr "بيانات القدرات"
+
+#: Requirements
+msgid "Requirements"
+msgstr "المتطلبات"
+
+#: Statements
+msgid "Statements"
+msgstr "البيانات"
+
+#: DerivedFrom
+msgid "Derived from"
+msgstr "مشتق من"
+
+#: Derivatives
+msgid "Derivatives"
+msgstr "المشتقات"
+
+#: ParticipatingActors
+msgid "Participating Actors"
+msgstr "الجهات الفاعلة المشاركة"
+
+#: NoPublisher
+msgid "No publisher has been registered."
+msgstr "لم يُسجَّل أي ناشر."
+
+#: NoContactEmail
+msgid "No contact email has been registered."
+msgstr "لم يُسجَّل أي بريد إلكتروني للاتصال."
+
+#: ActorCapabilities
+msgid "This actor fulfills the following capabilities:"
+msgstr "تفي هذه الجهة الفاعلة بالقدرات التالية:"
+
+#: ActorRequirements
+msgid "This actor fulfills the following requirements:"
+msgstr "تفي هذه الجهة الفاعلة بالمتطلبات التالية:"
+
+#: RequirementSteps
+msgid "Steps in the requirement:"
+msgstr "خطوات المتطلب:"
+
+#: NotDerived
+msgid "This requirement is not derived from another requirement."
+msgstr "هذا المتطلب غير مشتق من متطلب آخر."
+
+#: RequirementDerivatives
+msgid "This requirement has the following derivatives:"
+msgstr "لهذا المتطلب المشتقات التالية:"
