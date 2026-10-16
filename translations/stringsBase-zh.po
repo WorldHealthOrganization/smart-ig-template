@@ -1,0 +1,709 @@
+# en -> zh
+
+# NO_TRANS
+msgid ""
+msgstr ""
+
+#: NO_TRANS
+msgid "There is no translation page available for the current page, so it has been rendered in the default language"
+msgstr "当前页面没有可用的翻译页面，因此以默认语言呈现"
+
+# TRANS_HLP
+#: TRANS_HLP
+msgid "This page includes translations from the original source language in which the guide was authored.  Information on these translations and instructions on how to provide feedback on the translations can be found [here](translationinfo.html)."
+msgstr "本页包含从编写本指南时所用原始语言翻译而来的译文。有关这些译文的信息以及如何就译文提供反馈的说明，请参见[此处](translationinfo.html)。"
+
+# Experimental
+#: Experimental
+msgid "Experimental"
+msgstr "试验性"
+
+# Swagger
+#: Swagger
+msgid "Raw OpenAPI-Swagger Definition file"
+msgstr "原始 OpenAPI-Swagger 定义文件"
+
+# Download
+#: Download
+msgid "Download"
+msgstr "下载"
+
+# NoTestPlan
+#: NoTestPlan
+msgid "No test plans are currently available for the %ARTIFACT%."
+msgstr "%ARTIFACT% 目前没有可用的测试计划。"
+
+# NoTestScript
+#: NoTestScript
+msgid "No test scripts are currently available for the %ARTIFACT%."
+msgstr "%ARTIFACT% 目前没有可用的测试脚本。"
+
+# ChangeHistory
+#: ChangeHistory
+msgid "Change History"
+msgstr "变更历史"
+
+# HistoryOfChange
+#: HistoryOfChange
+msgid "History of changes for %ARTIFACT%."
+msgstr "%ARTIFACT% 的变更历史。"
+
+# CodeSystemValuesets
+#: CodeSystemValuesets
+msgid "This Code system is referenced in the definition of the following value sets:"
+msgstr "以下值集的定义引用了此代码系统："
+
+# Contained
+#: Contained
+msgid "Contained resources"
+msgstr "包含的资源"
+
+# FormalExtension
+#: FormalExtension
+msgid "Formal Views of Extension Content"
+msgstr "扩展内容的正式视图"
+
+# FormalProfile
+#: FormalProfile
+msgid "Formal Views of Profile Content"
+msgstr "配置文件内容的正式视图"
+
+# FormalResource
+#: FormalResource
+msgid "Formal Views of Resource Content"
+msgstr "资源内容的正式视图"
+
+# ReadingStructures
+#: ReadingStructures
+msgid "Description Differentials, Snapshots, and other representations"
+msgstr "差异视图、快照视图及其他表示形式的说明"
+
+# ReadingTerminology
+#: ReadingTerminology
+msgid "Description of the above table(s)"
+msgstr "上表的说明"
+
+# KeyElementsTable
+#: KeyElementsTable
+msgid "Key Elements Table"
+msgstr "关键元素表"
+
+# DifferentialTable
+#: DifferentialTable
+msgid "Differential Table"
+msgstr "差异表"
+
+# SnapshotTable
+#: SnapshotTable
+msgid "Snapshot Table"
+msgstr "快照表"
+
+# PseudoXML
+#: PseudoXML
+msgid "Pseudo XML"
+msgstr "伪 XML"
+
+# PseudoJSON
+#: PseudoJSON
+msgid "Pseudo JSON"
+msgstr "伪 JSON"
+
+# PseudoTTL
+#: PseudoTTL
+msgid "Pseudo TTL"
+msgstr "伪 TTL"
+
+# StatisticsReferences
+#: StatisticsReferences
+msgid "Statistics/References"
+msgstr "统计/引用"
+
+# AllTables
+#: AllTables
+msgid "All"
+msgstr "全部"
+
+# Derive
+#: Derive
+msgid "This structure is derived from %ARTIFACT%"
+msgstr "此结构派生自 %ARTIFACT%"
+
+# KeyElementsView
+#: KeyElementsView
+msgid "Key Elements View"
+msgstr "关键元素视图"
+
+# DifferentialView
+#: DifferentialView
+msgid "Differential View"
+msgstr "差异视图"
+
+# SnapshotView
+#: SnapshotView
+msgid "Snapshot View"
+msgstr "快照视图"
+
+# XMLTemplate
+#: XMLTemplate
+msgid "XML Template"
+msgstr "XML 模板"
+
+# JSONTemplate
+#: JSONTemplate
+msgid "JSON Template"
+msgstr "JSON 模板"
+
+# TTLTemplate
+#: TTLTemplate
+msgid "TTL Template"
+msgstr "TTL 模板"
+
+# OtherReps
+#: OtherReps
+msgid "Other representations of profile:"
+msgstr "配置文件的其他表示形式："
+
+# ResourceOtherReps
+#: ResourceOtherReps
+msgid "Other representations of resource:"
+msgstr "资源的其他表示形式："
+
+# CSV
+#: CSV
+msgid "CSV"
+msgstr "CSV"
+
+# Excel
+#: Excel
+msgid "Excel"
+msgstr "Excel"
+
+# Schematron
+#: Schematron
+msgid "Schematron"
+msgstr "Schematron"
+
+# Example
+#: Example
+msgid "Example"
+msgstr "示例"
+
+# Examples
+#: Examples
+msgid "Examples"
+msgstr "示例"
+
+# Raw
+#: Raw
+msgid "Raw %FMT%"
+msgstr "原始 %FMT%"
+
+# Abstract
+#: Abstract
+msgid "Abstract"
+msgstr "抽象"
+
+# DetailedDescriptions
+#: DetailedDescriptions
+msgid "Detailed Descriptions"
+msgstr "详细说明"
+
+# DefinitionsFor
+#: DefinitionsFor
+msgid "Definitions for the %MODEL%"
+msgstr "%MODEL% 的定义"
+
+# ExamplesForProfile
+#: ExamplesForProfile
+msgid "Examples for the %ID% Profile."
+msgstr "%ID% 配置文件的示例。"
+
+# ExamplesForResource
+#: ExamplesForResource
+msgid "Examples for the %ID% Resource."
+msgstr "%ID% 资源的示例。"
+
+# NoExamples
+#: NoExamples
+msgid "No examples are currently available for the %ID% Profile."
+msgstr "%ID% 配置文件目前没有可用的示例。"
+
+# ResourceNoExamples
+#: ResourceNoExamples
+msgid "No examples are currently available for the %ID% Resource"
+msgstr "%ID% 资源目前没有可用的示例"
+
+# FormatProfile
+#: FormatProfile
+msgid "%FMT% Profile"
+msgstr "%FMT% 配置文件"
+
+# FormatResource
+#: FormatResource
+msgid "%FMT% Resource"
+msgstr "%FMT% 资源"
+
+# FormatRep
+#: FormatRep
+msgid "%FMT% representation of the %ID% %TYPE%."
+msgstr "%ID% %TYPE% 的 %FMT% 表示形式。"
+
+# Mappings
+#: Mappings
+msgid "Mappings"
+msgstr "映射"
+
+# MappingsFor
+#: MappingsFor
+msgid "Mappings for the %ID% %TYPE%."
+msgstr "%ID% %TYPE% 的映射。"
+
+# ChangesIn
+#: ChangesIn
+msgid "Changes in the %ID% %TYPE%."
+msgstr "%ID% %TYPE% 中的变更。"
+
+# Testing
+#: Testing
+msgid "Testing"
+msgstr "测试"
+
+# TestPlans
+#: TestPlans
+msgid "Test Plans"
+msgstr "测试计划"
+
+# TestScripts
+#: TestScripts
+msgid "Test Scripts"
+msgstr "测试脚本"
+
+# Expansion
+#: Expansion
+msgid "Expansion"
+msgstr "扩展集"
+
+# Content
+#: Content
+msgid "Content"
+msgstr "内容"
+
+# XML
+#: XML
+msgid "XML"
+msgstr "XML"
+
+# JSON
+#: JSON
+msgid "JSON"
+msgstr "JSON"
+
+# TTL
+#: TTL
+msgid "TTL"
+msgstr "TTL"
+
+# History
+#: History
+msgid "History"
+msgstr "历史"
+
+# Extension
+#: Extension
+msgid "Extension"
+msgstr "扩展"
+
+# LogicalModel
+#: LogicalModel
+msgid "Logical Model"
+msgstr "逻辑模型"
+
+# ResourceModel
+#: ResourceModel
+msgid "Resource"
+msgstr "资源"
+
+# ResourceProfile
+#: ResourceProfile
+msgid "Resource Profile"
+msgstr "资源配置文件"
+
+# DataTypeProfile
+#: DataTypeProfile
+msgid "Data Type Profile"
+msgstr "数据类型配置文件"
+
+# Links
+#: Links
+msgid "Links"
+msgstr "链接"
+
+# Notes
+#: Notes
+msgid "Notes"
+msgstr "注释"
+
+# VisitFCP
+#: VisitFCP
+msgid "Visit the FHIR Community Process Specification Registry"
+msgstr "访问 FHIR 社区流程规范注册库"
+
+# CountryFlag
+#: CountryFlag
+msgid "flag"
+msgstr "旗帜"
+
+# PrevPage
+#: PrevPage
+msgid "< prev"
+msgstr "< 上一页"
+
+# NextPage
+#: NextPage
+msgid "next >"
+msgstr "下一页 >"
+
+# PageBottom
+#: PageBottom
+msgid "bottom"
+msgstr "底部"
+
+# PageTop
+#: PageTop
+msgid "top"
+msgstr "顶部"
+
+# IGCopyright
+#: IGCopyright
+msgid "IG © %YEAR%"
+msgstr "IG © %YEAR%"
+
+# IGPackage
+#: IGPackage
+msgid "Package %PKG% based on %FHIRVER%."
+msgstr "包 %PKG%，基于 %FHIRVER%。"
+
+# GeneratedDate
+#: GeneratedDate
+msgid "Generated %DATE%"
+msgstr "生成于 %DATE%"
+
+# PageStandardsStatus
+#: PageStandardsStatus
+msgid "Page standards status"
+msgstr "页面标准状态"
+
+# StandardsStatus
+#: StandardsStatus
+msgid "Standards Status"
+msgstr "标准状态"
+
+# FromNormative
+#: FromNormative
+msgid "from v%NORMVER%"
+msgstr "自 v%NORMVER% 起"
+
+# MaturityLevel
+#: MaturityLevel
+msgid "Maturity Level"
+msgstr "成熟度级别"
+
+# OfficialURL
+#: OfficialURL
+msgid "Official URL"
+msgstr "官方 URL"
+
+# CopyURL
+#: CopyURL
+msgid "Click to copy URL"
+msgstr "点击复制 URL"
+
+# CopyVersioned
+#: CopyVersioned
+msgid "Click to copy versioned URL"
+msgstr "点击复制带版本的 URL"
+
+# Version
+#: Version
+msgid "Version"
+msgstr "版本"
+
+# ResourceDate
+#: ResourceDate
+msgid "as of %RESDATE%"
+msgstr "截至 %RESDATE%"
+
+# Responsible
+#: Responsible
+msgid "Responsible"
+msgstr "负责方"
+
+# Realm
+#: Realm
+msgid "Realm"
+msgstr "领域"
+
+# ComputableName
+#: ComputableName
+msgid "Computable Name"
+msgstr "可计算名称"
+
+# OtherIdentifiers
+#: OtherIdentifiers
+msgid "Other Identifiers"
+msgstr "其他标识符"
+
+# Keywords
+#: Keywords
+msgid "Keywords"
+msgstr "关键词"
+
+# Usage
+#: Usage
+msgid "Usage"
+msgstr "用途"
+
+# CopyrightLegal
+#: CopyrightLegal
+msgid "Copyright/Legal"
+msgstr "版权/法律声明"
+
+# NarrativeContent
+#: NarrativeContent
+msgid "Narrative Content"
+msgstr "叙述内容"
+
+# TableOfContents
+#: TableOfContents
+msgid "Table of Contents"
+msgstr "目录"
+
+# QAReport
+#: QAReport
+msgid "QA Report"
+msgstr "质量保证报告"
+
+# Actors
+#: Actors
+msgid "Actors"
+msgstr "角色"
+
+# Diagram
+#: Diagram
+msgid "Diagram"
+msgstr "图示"
+
+# Processes
+#: Processes
+msgid "Processes"
+msgstr "流程"
+
+# Instances
+#: Instances
+msgid "Instances"
+msgstr "实例"
+
+# WorkInProgress
+#: WorkInProgress
+msgid "The content in this section has not undergone work group review and may be significantly revised prior to the next ballot."
+msgstr "本节内容尚未经过工作组审查，在下一次投票之前可能会有重大修订。"
+
+# Contents
+#: Contents
+msgid "Contents"
+msgstr "内容"
+
+# Globals
+#: Globals
+msgid "Globals"
+msgstr "全局"
+
+# GlobalProfiles
+#: GlobalProfiles
+msgid "Global Profiles"
+msgstr "全局配置文件"
+
+# ArtifactsIntro
+#: ArtifactsIntro
+msgid "This page provides a list of the FHIR artifacts defined as part of this implementation guide."
+msgstr "本页列出了作为本实施指南一部分定义的 FHIR 工件。"
+
+# ArtifactsSummary
+#: ArtifactsSummary
+msgid "Artifacts Summary"
+msgstr "工件摘要"
+
+# ArtifactsTable
+#: ArtifactsTable
+msgid "Artifacts Table"
+msgstr "工件表"
+
+# Language
+#: Language
+msgid "Language"
+msgstr "语言"
+
+# UMLDiagram
+#: UMLDiagram
+msgid "UML Diagram"
+msgstr "UML 图"
+
+# Obligations
+#: Obligations
+msgid "Obligations"
+msgstr "义务"
+
+# OpenEHR
+#: OpenEHR
+msgid "openEHR View"
+msgstr "openEHR 视图"
+
+# QuestionnaireTree
+#: QuestionnaireTree
+msgid "Tree view"
+msgstr "树形视图"
+
+# QuestionnaireSample
+#: QuestionnaireSample
+msgid "Sample Rendering"
+msgstr "示例呈现"
+
+# QuestionnaireLogic
+#: QuestionnaireLogic
+msgid "Form Logic"
+msgstr "表单逻辑"
+
+# QuestionnaireResponses
+#: QuestionnaireResponses
+msgid "Sample completed form"
+msgstr "已填写的示例表单"
+
+# TestQuestionnaire
+#: TestQuestionnaire
+msgid "Test this Questionnaire"
+msgstr "测试此问卷"
+
+# ResponsesQuestionnaire
+#: ResponsesQuestionnaire
+msgid "Responses for this Questionnaire"
+msgstr "此问卷的答复"
+
+# NoQuestionnaireResponses
+#: NoQuestionnaireResponses
+msgid "There are currently no QuestionnaireResponse instances for this Questionnaire defined in this IG."
+msgstr "本实施指南中目前没有为此问卷定义的 QuestionnaireResponse 实例。"
+
+# ADL
+#: ADL
+msgid "ADL"
+msgstr "ADL"
+
+# Structure
+#: Structure
+msgid "Structure"
+msgstr "结构"
+
+# SearchParameters
+#: SearchParameters
+msgid "Search Parameters"
+msgstr "搜索参数"
+
+# HighlightChanges
+#: HighlightChanges
+msgid "Highlight text changes?"
+msgstr "突出显示文本变更？"
+
+# HighlightChangesHelp
+#: HighlightChangesHelp
+msgid "Enable this to see changes since the last official release"
+msgstr "启用此项可查看自上一个正式版本以来的变更"
+
+# NewContent
+#: NewContent
+msgid "New Content"
+msgstr "新内容"
+
+# ModifiedContent
+#: ModifiedContent
+msgid "Modified Content"
+msgstr "已修改的内容"
+
+# TermParameters
+#: TermParameters
+msgid "Terminology Parameters"
+msgstr "术语参数"
+
+# ModelOf
+#: ModelOf
+msgid "Instance of logical model"
+msgstr "逻辑模型的实例"
+
+# ArtifactsTableIntro
+#: ArtifactsTableIntro
+msgid "This page provides a tabular view of the FHIR artifacts defined as part of this implementation guide."
+msgstr "本页以表格形式列出了作为本实施指南一部分定义的 FHIR 工件。"
+
+# Grouping
+#: Grouping
+msgid "Grouping"
+msgstr "分组"
+
+# Title
+#: Title
+msgid "Title"
+msgstr "标题"
+
+# Id
+#: Id
+msgid "Id"
+msgstr "Id"
+
+# Type
+#: Type
+msgid "Type"
+msgstr "类型"
+
+# Description
+#: Description
+msgid "Description"
+msgstr "说明"
+
+# Search
+#: Search
+msgid "Search"
+msgstr "搜索"
+
+# Category
+#: Category
+msgid "Category"
+msgstr "类别"
+
+# UseGrouping
+#: UseGrouping
+msgid "Use grouping"
+msgstr "使用分组"
+
+# ClearAll
+#: ClearAll
+msgid "Clear all"
+msgstr "全部清除"
+
+# CurrentBuild
+#: CurrentBuild
+msgid "Current Build"
+msgstr "当前构建"
+
+# CISearchMsg
+#: CISearchMsg
+msgid "Note: this search searches the current build of {{site.data.fhir.ig.title}}.  This page only exists for the CI build - published versions will use a different search page."
+msgstr "注意：此搜索仅搜索 {{site.data.fhir.ig.title}} 的当前构建。此页面仅存在于 CI 构建中——已发布的版本将使用不同的搜索页面。"
+
+# Specification
+#: Specification
+msgid "Specification"
+msgstr "规范"
+
+# LinkToThisSection
+#: LinkToThisSection
+msgid "Link to this section"
+msgstr "链接到本节"

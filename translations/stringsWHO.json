@@ -1,0 +1,32 @@
+{
+  "en": {
+    "WHOLogo": "World Health Organization",
+    "VersionHistory": "Version History",
+    "License": "License",
+    "Feedback": "Feedback",
+    "WatermarkDraft": "DRAFT",
+    "WatermarkRetired": "RETIRED",
+    "NoteToBalloters": "Note To Balloters",
+    "STUNote": "STU Note",
+    "Form": "Form",
+    "FormPreview": "This is a simplified preview of the Questionnaire resource.",
+    "FormFullRendering": "For a fully functional rendering, please consult the list of %LINK%, namely those implementing the Form Designer or Form Filler actor.",
+    "SDCImplementations": "SDC Implementations",
+    "Publisher": "Publisher",
+    "ContactEmail": "Contact Email",
+    "Jurisdiction": "Jurisdiction",
+    "CapabilityStatements": "Capability Statements",
+    "Requirements": "Requirements",
+    "Statements": "Statements",
+    "DerivedFrom": "Derived from",
+    "Derivatives": "Derivatives",
+    "ParticipatingActors": "Participating Actors",
+    "NoPublisher": "No publisher has been registered.",
+    "NoContactEmail": "No contact email has been registered.",
+    "ActorCapabilities": "This actor fulfills the following capabilities:",
+    "ActorRequirements": "This actor fulfills the following requirements:",
+    "RequirementSteps": "Steps in the requirement:",
+    "NotDerived": "This requirement is not derived from another requirement.",
+    "RequirementDerivatives": "This requirement has the following derivatives:"
+  }
+}

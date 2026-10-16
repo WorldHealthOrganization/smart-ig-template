@@ -1,0 +1,113 @@
+# en -> zh
+
+#: WHOLogo
+msgid "World Health Organization"
+msgstr "世界卫生组织"
+
+#: VersionHistory
+msgid "Version History"
+msgstr "版本历史"
+
+#: License
+msgid "License"
+msgstr "许可"
+
+#: Feedback
+msgid "Feedback"
+msgstr "反馈"
+
+#: WatermarkDraft
+msgid "DRAFT"
+msgstr "草案"
+
+#: WatermarkRetired
+msgid "RETIRED"
+msgstr "已停用"
+
+#: NoteToBalloters
+msgid "Note To Balloters"
+msgstr "致投票者的说明"
+
+#: STUNote
+msgid "STU Note"
+msgstr "STU 说明"
+
+#: Form
+msgid "Form"
+msgstr "表单"
+
+#: FormPreview
+msgid "This is a simplified preview of the Questionnaire resource."
+msgstr "这是 Questionnaire 资源的简化预览。"
+
+#: FormFullRendering
+msgid "For a fully functional rendering, please consult the list of %LINK%, namely those implementing the Form Designer or Form Filler actor."
+msgstr "如需完整功能的呈现，请参阅 %LINK% 列表，特别是实现 Form Designer 或 Form Filler 角色的实现。"
+
+#: SDCImplementations
+msgid "SDC Implementations"
+msgstr "SDC 实现"
+
+#: Publisher
+msgid "Publisher"
+msgstr "发布者"
+
+#: ContactEmail
+msgid "Contact Email"
+msgstr "联系电子邮件"
+
+#: Jurisdiction
+msgid "Jurisdiction"
+msgstr "管辖区"
+
+#: CapabilityStatements
+msgid "Capability Statements"
+msgstr "能力声明"
+
+#: Requirements
+msgid "Requirements"
+msgstr "需求"
+
+#: Statements
+msgid "Statements"
+msgstr "陈述"
+
+#: DerivedFrom
+msgid "Derived from"
+msgstr "派生自"
+
+#: Derivatives
+msgid "Derivatives"
+msgstr "派生项"
+
+#: ParticipatingActors
+msgid "Participating Actors"
+msgstr "参与角色"
+
+#: NoPublisher
+msgid "No publisher has been registered."
+msgstr "尚未登记发布者。"
+
+#: NoContactEmail
+msgid "No contact email has been registered."
+msgstr "尚未登记联系电子邮件。"
+
+#: ActorCapabilities
+msgid "This actor fulfills the following capabilities:"
+msgstr "该角色满足以下能力："
+
+#: ActorRequirements
+msgid "This actor fulfills the following requirements:"
+msgstr "该角色满足以下需求："
+
+#: RequirementSteps
+msgid "Steps in the requirement:"
+msgstr "需求中的步骤："
+
+#: NotDerived
+msgid "This requirement is not derived from another requirement."
+msgstr "此需求不是从其他需求派生的。"
+
+#: RequirementDerivatives
+msgid "This requirement has the following derivatives:"
+msgstr "此需求有以下派生项："

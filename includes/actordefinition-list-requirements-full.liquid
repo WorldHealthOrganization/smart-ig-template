@@ -1,23 +1,24 @@
-
-
-{% assign actorstub = "ActorDefinition-" | append: actordefinition.id %}
+{% comment %}
+  Requirements that name this ActorDefinition as actor, with their summaries. Parameters: actordefinition, lang.
+{% endcomment %}
+{% assign whoStrings = site.data.stringsWHO[include.lang] | default: site.data.stringsWHO.en %}
+{% assign xvActor = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.actor" %}
+{% assign actorstub = "ActorDefinition-" | append: include.actordefinition.id %}
 {% assign canonicals = site.data.canonicals | where: 'type' , 'Requirements' %}
 
-This actor fulfills the following requirements:
+{{whoStrings.ActorRequirements}}
 <ul>
   {% for canonical in canonicals %}
     {% assign stub = canonical.type | append: "-" | append: canonical.id %}
     {% assign requirement = site.data[stub] %}
-    {% assign reqactors =  requirement.extension | where: 'url', 'http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.actor' %}
+    {% assign reqactors = requirement.actor %}
+    {% unless reqactors %}{% assign reqactors = requirement.extension | where: 'url', xvActor | map: 'valueCanonical' %}{% endunless %}
     {% for reqactor in reqactors %}
-      {% assign reqactorcanonical = reqactor.valueCanonical | split: "/" | last   %}
+      {% assign reqactorcanonical = reqactor | split: "/" | last %}
       {% assign reqactorstub = "ActorDefinition-" | append: reqactorcanonical %}
-      {% unless reqactorstub != actorstub %}
-        {% assign reqtitle = requirement.extension 
-           | where: "url", "http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.title"
-           | first %}
-        <li>{% include requirements-short-summary.liquid requirement=requirement site=site %}</li>
-      {% endunless %}
+      {% if reqactorstub == actorstub %}
+        <li>{% include requirements-short-summary.liquid requirement=requirement site=site lang=include.lang %}</li>
+      {% endif %}
     {% endfor %}
   {% endfor %}
 </ul>

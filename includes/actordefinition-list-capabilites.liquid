@@ -1,19 +1,22 @@
-
-
-
-{% assign capes = actordefinition.capabilities %}
- 
+{% comment %}
+  Capability statements of an ActorDefinition. Parameters: actordefinition, lang.
+{% endcomment %}
+{% assign whoStrings = site.data.stringsWHO[include.lang] | default: site.data.stringsWHO.en %}
+{% assign xvCapabilities = "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.capabilities" %}
+{% assign capes = include.actordefinition.capabilities %}
+{% unless capes %}{% assign capes = include.actordefinition.extension | where: "url", xvCapabilities | map: "valueCanonical" %}{% endunless %}
+{% comment %} R5 capabilities is a single canonical: make it a list {% endcomment %}
+{% assign capes = capes | join: " " | split: " " %}
 
 {% unless capes == empty or capes == nil %}
-This actor fufills the following capabilities:
-<ul>	  
+{{whoStrings.ActorCapabilities}}
+<ul>
   {% for cape in capes %}
   <li>
-    {% assign capeinstance = cape | split: "/" | last  | split: ".html" | first | replace: "." , "" %}
-    {% assign capestub = "CapabilityStatement-" | append: capeinstance  %}
-
+    {% assign capeinstance = cape | split: "/" | last | split: ".html" | first | replace: "." , "" %}
+    {% assign capestub = "CapabilityStatement-" | append: capeinstance %}
     {% assign capestatement = site.data[capestub] %}
-    {% include capabilitystatement-short-summary.liquid site=site capestatement=capestatement  %}
+    {% include capabilitystatement-short-summary.liquid site=site capestatement=capestatement %}
   </li>
   {% endfor %}
 </ul>

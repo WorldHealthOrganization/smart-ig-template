@@ -1,64 +1,71 @@
+{% comment %}
+  Summary table of an ActorDefinition.
+  Parameters: actordefinition (the resource from site.data), lang.
+  Reads the R5 elements, or the R5 cross-version extensions when the resource carries those instead.
+{% endcomment %}
+{% assign whoStrings = site.data.stringsWHO[include.lang] | default: site.data.stringsWHO.en %}
+{% assign xvPublisher = "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.publisher" %}
+{% assign xvContact = "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.contact" %}
+{% assign xvJurisdiction = "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.jurisdiction" %}
+{% assign xvCapabilities = "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.capabilities" %}
+{% assign ext = include.actordefinition.extension %}
 
-{% assign ext = actordefinition.extension %}
-
-{% assign title = ext | where: "url", "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.title" | first %}
-{% assign capes = ext | where: 'url', 'http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.capabilities' %}
-    
+{% assign publisher = include.actordefinition.publisher %}
+{% unless publisher %}{% assign publisher = ext | where: "url", xvPublisher | map: "valueString" | first %}{% endunless %}
+{% assign contacts = include.actordefinition.contact %}
+{% unless contacts %}{% assign contacts = ext | where: "url", xvContact | map: "valueContactDetail" %}{% endunless %}
+{% assign telecoms = contacts | map: "telecom" | first %}
+{% assign contacturl = telecoms | where: "system", "url" | map: "value" | first %}
+{% assign contactemail = telecoms | where: "system", "email" | map: "value" | first %}
+{% assign jurisdiction = include.actordefinition.jurisdiction | first %}
+{% unless jurisdiction %}{% assign jurisdiction = ext | where: "url", xvJurisdiction | map: "valueCodeableConcept" | first %}{% endunless %}
+{% assign capes = include.actordefinition.capabilities %}
+{% unless capes %}{% assign capes = ext | where: "url", xvCapabilities | map: "valueCanonical" %}{% endunless %}
+{% assign capes = capes | join: " " | split: " " %}
 
 <table border="1" style="border-collapse: collapse;">
   <tbody>
-
     <tr>
-      <th>Publisher</th>
-      <td>	
-	{% assign contacturl =  ext
-	  | where: 'url', 'http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.contact'
-	  | map: 'valueContactDetail' | map: 'telecom' | first | where: 'system', 'url' | first | map: 'value' | first %}
-	{% assign publisher = ext
-	  | where: 'url', 'http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.publisher'
-	  | first | map: 'valueString' | first %}
-	{% if publisher == empty or publisher == nil %}
-	  {% if contacturl == empty or contactur == nil %}
-	    No publisher has been registered.
-	  {% else %}
-	    {{ contacturl }}
-	  {% endif %}
-	{% else %}
-	  {% if contacturl == empty or contacturl == nil %}
-	    {{  publisher  }}
-	  {% else %}
-    	    <a href="{{  contacturl  }}">{{  publisher  }}</a>
-	  {% endif %}
-	{% endif %}
-      </td>
-    </tr>
-    <tr>
-      <th>Contact Email</th>
+      <th>{{whoStrings.Publisher}}</th>
       <td>
-	{% assign url = ext
-	  | where: 'url', 'http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.contact'
-  	  | map: 'valueContactDetail' | map: 'telecom' | first | where: 'system', 'email' | first | map: 'value' | first %}
-	{% if url == empty or url == nil %}
-	   No contact email has been registered.
-	{% else %}
-	  {{url}}
-	{% endif %}
+{% if publisher == empty or publisher == nil %}
+  {% if contacturl == empty or contacturl == nil %}
+        {{whoStrings.NoPublisher}}
+  {% else %}
+        {{ contacturl }}
+  {% endif %}
+{% else %}
+  {% if contacturl == empty or contacturl == nil %}
+        {{ publisher }}
+  {% else %}
+        <a href="{{ contacturl }}">{{ publisher }}</a>
+  {% endif %}
+{% endif %}
       </td>
     </tr>
-    
     <tr>
-      <th>Jurisdiction</th>
-      <td>{{ ext | where: 'url', 'http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.jurisdiction' | first | map: 'valueCodeableConcept' | map: 'coding' | first | first | map: 'code' | first }}</td>
+      <th>{{whoStrings.ContactEmail}}</th>
+      <td>
+{% if contactemail == empty or contactemail == nil %}
+        {{whoStrings.NoContactEmail}}
+{% else %}
+        {{ contactemail }}
+{% endif %}
+      </td>
     </tr>
-    {% unless capes == empty or capes == nil %}    
     <tr>
-      <th>Capability Statements</th>
-      <td>{% include actordefinition-list-capabilites.liquid site=site actordefinition=actordefinition %}</td>
+      <th>{{whoStrings.Jurisdiction}}</th>
+      <td>{{ jurisdiction.coding | first | map: "code" | first }}</td>
     </tr>
-    {% endunless %}
+{% unless capes == empty or capes == nil %}
     <tr>
-      <th>Requirements</th>
-      <td>{% include actordefinition-list-requirements-full.liquid site=site actordefinition=actordefinition %}</td>
+      <th>{{whoStrings.CapabilityStatements}}</th>
+      <td>{% include actordefinition-list-capabilites.liquid site=site actordefinition=include.actordefinition lang=include.lang %}</td>
+    </tr>
+{% endunless %}
+    <tr>
+      <th>{{whoStrings.Requirements}}</th>
+      <td>{% include actordefinition-list-requirements-full.liquid site=site actordefinition=include.actordefinition lang=include.lang %}</td>
     </tr>
   </tbody>
 </table>

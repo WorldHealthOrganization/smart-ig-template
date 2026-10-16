@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
         // Create feedback button
         const feedbackButton = document.createElement("span");
-        feedbackButton.textContent = " Feedback ";
+        feedbackButton.textContent = " " + (configElement.dataset.label || "Feedback") + " ";
         feedbackButton.classList.add("feedback");
         feedbackButton.style.cursor = "pointer";
         feedbackButton.style.marginLeft = "10px";

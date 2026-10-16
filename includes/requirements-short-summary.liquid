@@ -1,10 +1,13 @@
+{% comment %}
+  Short summary of a Requirements resource: title, description and statements. Parameters: requirement, lang.
+{% endcomment %}
+{% assign xvTitle = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.title" %}
+{% assign xvDescription = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.description" %}
+{% assign title = include.requirement.title %}
+{% unless title %}{% assign title = include.requirement.extension | where: "url", xvTitle | map: "valueString" | first %}{% endunless %}
+{% assign description = include.requirement.description %}
+{% unless description %}{% assign description = include.requirement.extension | where: "url", xvDescription | map: "valueMarkdown" | first %}{% endunless %}
 
+<b><a href="Requirements-{{include.requirement.id}}.html">{{title}}</a></b>:{{description | markdownify}}
 
-
-{% assign title = requirement.extension | where: "url", "http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.title" | first %}
-
-{% assign description = requirement.extension | where: "url", "http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.description" | first %}
-
-<b><a href="Requirements-{{requirement.id}}.html">{{title.valueString}}</a></b>:{{description.valueMarkdown | markdownify}}
-
-{% include requirements-list-statements.liquid site=site requirement=requirement %}
+{% include requirements-list-statements.liquid site=site requirement=include.requirement lang=include.lang %}

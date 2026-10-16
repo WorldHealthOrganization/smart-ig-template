@@ -1,0 +1,113 @@
+# en -> ru
+
+#: WHOLogo
+msgid "World Health Organization"
+msgstr "Всемирная организация здравоохранения"
+
+#: VersionHistory
+msgid "Version History"
+msgstr "История версий"
+
+#: License
+msgid "License"
+msgstr "Лицензия"
+
+#: Feedback
+msgid "Feedback"
+msgstr "Отзыв"
+
+#: WatermarkDraft
+msgid "DRAFT"
+msgstr "ЧЕРНОВИК"
+
+#: WatermarkRetired
+msgid "RETIRED"
+msgstr "ОТМЕНЁН"
+
+#: NoteToBalloters
+msgid "Note To Balloters"
+msgstr "Примечание для голосующих"
+
+#: STUNote
+msgid "STU Note"
+msgstr "Примечание STU"
+
+#: Form
+msgid "Form"
+msgstr "Форма"
+
+#: FormPreview
+msgid "This is a simplified preview of the Questionnaire resource."
+msgstr "Это упрощённый предварительный просмотр ресурса Questionnaire."
+
+#: FormFullRendering
+msgid "For a fully functional rendering, please consult the list of %LINK%, namely those implementing the Form Designer or Form Filler actor."
+msgstr "Для полнофункционального отображения ознакомьтесь со списком %LINK%, в частности с теми, которые реализуют актор Form Designer или Form Filler."
+
+#: SDCImplementations
+msgid "SDC Implementations"
+msgstr "реализаций SDC"
+
+#: Publisher
+msgid "Publisher"
+msgstr "Издатель"
+
+#: ContactEmail
+msgid "Contact Email"
+msgstr "Адрес электронной почты для связи"
+
+#: Jurisdiction
+msgid "Jurisdiction"
+msgstr "Юрисдикция"
+
+#: CapabilityStatements
+msgid "Capability Statements"
+msgstr "Заявления о возможностях"
+
+#: Requirements
+msgid "Requirements"
+msgstr "Требования"
+
+#: Statements
+msgid "Statements"
+msgstr "Положения"
+
+#: DerivedFrom
+msgid "Derived from"
+msgstr "Производно от"
+
+#: Derivatives
+msgid "Derivatives"
+msgstr "Производные"
+
+#: ParticipatingActors
+msgid "Participating Actors"
+msgstr "Участвующие акторы"
+
+#: NoPublisher
+msgid "No publisher has been registered."
+msgstr "Издатель не зарегистрирован."
+
+#: NoContactEmail
+msgid "No contact email has been registered."
+msgstr "Адрес электронной почты для связи не зарегистрирован."
+
+#: ActorCapabilities
+msgid "This actor fulfills the following capabilities:"
+msgstr "Этот актор обеспечивает следующие возможности:"
+
+#: ActorRequirements
+msgid "This actor fulfills the following requirements:"
+msgstr "Этот актор выполняет следующие требования:"
+
+#: RequirementSteps
+msgid "Steps in the requirement:"
+msgstr "Шаги требования:"
+
+#: NotDerived
+msgid "This requirement is not derived from another requirement."
+msgstr "Это требование не является производным от другого требования."
+
+#: RequirementDerivatives
+msgid "This requirement has the following derivatives:"
+msgstr "У этого требования есть следующие производные:"

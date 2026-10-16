@@ -1,0 +1,113 @@
+# en -> ar
+
+#: WHOLogo
+msgid "World Health Organization"
+msgstr "منظمة الصحة العالمية"
+
+#: VersionHistory
+msgid "Version History"
+msgstr "سجل الإصدارات"
+
+#: License
+msgid "License"
+msgstr "الترخيص"
+
+#: Feedback
+msgid "Feedback"
+msgstr "ملاحظات"
+
+#: WatermarkDraft
+msgid "DRAFT"
+msgstr "مسودة"
+
+#: WatermarkRetired
+msgid "RETIRED"
+msgstr "ملغى"
+
+#: NoteToBalloters
+msgid "Note To Balloters"
+msgstr "ملاحظة للمصوّتين"
+
+#: STUNote
+msgid "STU Note"
+msgstr "ملاحظة STU"
+
+#: Form
+msgid "Form"
+msgstr "النموذج"
+
+#: FormPreview
+msgid "This is a simplified preview of the Questionnaire resource."
+msgstr "هذه معاينة مبسطة لمورد Questionnaire."
+
+#: FormFullRendering
+msgid "For a fully functional rendering, please consult the list of %LINK%, namely those implementing the Form Designer or Form Filler actor."
+msgstr "للحصول على عرض كامل الوظائف، يرجى الرجوع إلى قائمة %LINK%، ولا سيما تلك التي تنفذ دور Form Designer أو Form Filler."
+
+#: SDCImplementations
+msgid "SDC Implementations"
+msgstr "تطبيقات SDC"
+
+#: Publisher
+msgid "Publisher"
+msgstr "الناشر"
+
+#: ContactEmail
+msgid "Contact Email"
+msgstr "البريد الإلكتروني للاتصال"
+
+#: Jurisdiction
+msgid "Jurisdiction"
+msgstr "الولاية القضائية"
+
+#: CapabilityStatements
+msgid "Capability Statements"
+msgstr "بيانات القدرات"
+
+#: Requirements
+msgid "Requirements"
+msgstr "المتطلبات"
+
+#: Statements
+msgid "Statements"
+msgstr "البيانات"
+
+#: DerivedFrom
+msgid "Derived from"
+msgstr "مشتق من"
+
+#: Derivatives
+msgid "Derivatives"
+msgstr "المشتقات"
+
+#: ParticipatingActors
+msgid "Participating Actors"
+msgstr "الجهات الفاعلة المشاركة"
+
+#: NoPublisher
+msgid "No publisher has been registered."
+msgstr "لم يُسجَّل أي ناشر."
+
+#: NoContactEmail
+msgid "No contact email has been registered."
+msgstr "لم يُسجَّل أي بريد إلكتروني للاتصال."
+
+#: ActorCapabilities
+msgid "This actor fulfills the following capabilities:"
+msgstr "تفي هذه الجهة الفاعلة بالقدرات التالية:"
+
+#: ActorRequirements
+msgid "This actor fulfills the following requirements:"
+msgstr "تفي هذه الجهة الفاعلة بالمتطلبات التالية:"
+
+#: RequirementSteps
+msgid "Steps in the requirement:"
+msgstr "خطوات المتطلب:"
+
+#: NotDerived
+msgid "This requirement is not derived from another requirement."
+msgstr "هذا المتطلب غير مشتق من متطلب آخر."
+
+#: RequirementDerivatives
+msgid "This requirement has the following derivatives:"
+msgstr "لهذا المتطلب المشتقات التالية:"

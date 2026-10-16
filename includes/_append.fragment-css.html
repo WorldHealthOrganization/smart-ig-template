@@ -1,2 +1,5 @@
+    <link href="{{site.data.info.assets}}assets/css/fa-all.css" rel="stylesheet" type="text/css"/>
     <link href="{{site.data.info.assets}}assets/css/who.css" rel="stylesheet"/>
     <link href="{{site.data.info.assets}}assets/css/lforms.min.css" rel="stylesheet"/>
+{% assign whoStrings = site.data.stringsWHO[include.lang] | default: site.data.stringsWHO.en %}
+    <style type="text/css">:root { --who-note-to-balloters: "{{whoStrings.NoteToBalloters | replace: '"', '\"'}}"; --who-stu-note: "{{whoStrings.STUNote | replace: '"', '\"'}}"; }</style>

@@ -27,7 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then(fhirQ => {
           delete fhirQ.text;
+          // expansions.json is written at the root of the output, pages are in a language folder (en/, fr/, ...)
           return fetch("expansions.json").then(response => {
+              return response.ok ? response : fetch("../expansions.json");
+          }).then(response => {
               if (!response.ok) {
                   throw new Error("Error loading expansions.json: " + response.statusText);
               }

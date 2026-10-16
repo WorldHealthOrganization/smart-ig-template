@@ -1,31 +1,45 @@
-
-{% assign statements = requirement.extension | where: 'url', 'http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.statement' %}
+{% comment %}
+  Statements of a Requirements resource. Parameters: requirement, lang.
+  Reads Requirements.statement, or the R5 cross-version statement extension.
+{% endcomment %}
+{% assign whoStrings = site.data.stringsWHO[include.lang] | default: site.data.stringsWHO.en %}
+{% assign xvStatement = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.statement" %}
+{% assign statements = include.requirement.statement %}
+{% assign fromExtension = false %}
+{% unless statements %}
+  {% assign statements = include.requirement.extension | where: 'url', xvStatement %}
+  {% assign fromExtension = true %}
+{% endunless %}
 {% unless statements == empty or statements == nil %}
-Steps in the requirement:
+{{whoStrings.RequirementSteps}}
 <ol>
  {% for statement in statements %}
+   {% if fromExtension %}
+     {% assign stmtconformance = statement.extension | where: 'url', 'conformance' | map: 'valueCode' | join: ", " %}
+     {% if stmtconformance == "" %}
+       {% assign stmtconformance = statement.extension | where: 'url', 'http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.statement.conformance' | map: 'valueCode' | join: ", " %}
+     {% endif %}
+     {% assign stmtlabel = statement.extension | where: 'url', 'label' | map: 'valueString' | first %}
+     {% unless stmtlabel %}
+       {% assign stmtlabel = statement.extension | where: 'url', 'http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.statement.label' | map: 'valueString' | first %}
+     {% endunless %}
+     {% assign stmtrequirement = statement.extension | where: 'url', 'requirement' | map: 'valueMarkdown' | first %}
+     {% unless stmtrequirement %}
+       {% assign stmtrequirement = statement.extension | where: 'url', 'http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.statement.requirement' | map: 'valueMarkdown' | first %}
+     {% endunless %}
+   {% else %}
+     {% assign stmtconformance = statement.conformance | join: ", " %}
+     {% assign stmtlabel = statement.label | default: statement.key %}
+     {% assign stmtrequirement = statement.requirement %}
+   {% endif %}
  <li>
-   {% assign stmtkey = statement.extension
-     | where: 'url', 'http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.statement.key'
-     | map: 'valueId' | first  %}
-   {% assign stmtconformance = statement.extension
-     | where: 'url', 'http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.statement.conformance'
-     | map: 'valueCode' | first  %}
-   {% assign stmtlabel = statement.extension
-     | where: 'url', 'http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.statement.label'
-     | map: 'valueString' | first  %}	    
-   {% assign stmtrequirement = statement.extension
-     | where: 'url', 'http://hl7.org/fhir/5.0/StructureDefinition/extension-Requirements.statement.requirement'
-     | map: 'valueMarkdown' | first  | markdownify %}	    
    <b>
-     {% unless stmtconformance == empty or stmtconformance == nil %}  
-       <a href="https://hl7.org/fhir/R5//codesystem-conformance-expectation.html#content">
-         {{ stmtconformance  }}
-       </a> -
+     {% unless stmtconformance == empty or stmtconformance == nil %}
+       <a href="https://hl7.org/fhir/R5/codesystem-conformance-expectation.html#content">{{ stmtconformance }}</a> -
      {% endunless %}
      {{ stmtlabel }}
    </b>:
-   {{ stmtrequirement }}
+   {{ stmtrequirement | markdownify }}
  </li>
  {% endfor %}
 </ol>

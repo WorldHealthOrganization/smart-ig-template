@@ -1,0 +1,394 @@
+# en -> zh
+
+# ActorDefinitionName
+msgid ""
+msgstr ""
+
+#: ActorDefinitionName
+msgid "Requirements: Actor Definitions"
+msgstr "需求：角色定义"
+
+# ActorDefinitionDesc
+#: ActorDefinitionDesc
+msgid "The following artifacts define the types of individuals and/or systems that will interact as part of the use cases covered by this implementation guide."
+msgstr "以下工件定义了在本实施指南所涵盖的用例中进行交互的个人和/或系统的类型。"
+
+# RequirementsName
+#: RequirementsName
+msgid "Requirements: Formal Requirements"
+msgstr "需求：正式需求"
+
+# RequirementsDesc
+#: RequirementsDesc
+msgid "The following artifacts describe the specific requirements to be met by systems compliant with the implementation guide."
+msgstr "以下工件描述了符合本实施指南的系统必须满足的具体需求。"
+
+# CapabilityStatementName
+#: CapabilityStatementName
+msgid "Behavior: Capability Statements"
+msgstr "行为：能力声明（CapabilityStatement）"
+
+# CapabilityStatementDesc
+#: CapabilityStatementDesc
+msgid "The following artifacts define the specific capabilities that different types of systems are expected to have in order to comply with this implementation guide.  Systems conforming to this implementation guide are expected to declare conformance to one or more of the following capability statements."
+msgstr "以下工件定义了不同类型的系统为符合本实施指南而应具备的具体能力。符合本实施指南的系统应声明符合以下一项或多项能力声明。"
+
+# OperationDefinitionName
+#: OperationDefinitionName
+msgid "Behavior: Operation Definitions"
+msgstr "行为：操作定义"
+
+# OperationDefinitionDesc
+#: OperationDefinitionDesc
+msgid "These are custom operations that can be supported by and/or invoked by systems conforming to this implementation guide."
+msgstr "这些是符合本实施指南的系统可以支持和/或调用的自定义操作。"
+
+# EventDefinitionName
+#: EventDefinitionName
+msgid "Behavior: Event Definitions"
+msgstr "行为：事件定义"
+
+# EventDefinitionDesc
+#: EventDefinitionDesc
+msgid "Defines system and business occurrences that drive a need for data to flow from systems in this implementation guide."
+msgstr "定义促使数据在本实施指南中的系统之间流动的系统事件和业务事件。"
+
+# MessageDefinitionName
+#: MessageDefinitionName
+msgid "Behavior: Message Definitions"
+msgstr "行为：消息定义"
+
+# MessageDefinitionDesc
+#: MessageDefinitionDesc
+msgid "These define the types of messages that can be sent and/or received by systems conforming to this implementation guide."
+msgstr "这些定义了符合本实施指南的系统可以发送和/或接收的消息类型。"
+
+# SearchParameterName
+#: SearchParameterName
+msgid "Behavior: Search Parameters"
+msgstr "行为：搜索参数"
+
+# SearchParameterDesc
+#: SearchParameterDesc
+msgid "These define the properties by which a RESTful server can be searched.  They can also be used for sorting and including related resources."
+msgstr "这些定义了可用于搜索 RESTful 服务器的属性。它们也可用于排序和包含相关资源。"
+
+# SubscriptionTopicName
+#: SubscriptionTopicName
+msgid "Behavior: Subscription Topics"
+msgstr "行为：订阅主题"
+
+# SubscriptionTopicDesc
+#: SubscriptionTopicDesc
+msgid "These define the types of information that can be subscribed to on systems conforming to this this implementation guide."
+msgstr "这些定义了在符合本实施指南的系统上可以订阅的信息类型。"
+
+# ActivityDefinitionName
+#: ActivityDefinitionName
+msgid "Knowledge Artifacts: Activity Definitions"
+msgstr "知识工件：活动定义"
+
+# ActivityDefinitionDesc
+#: ActivityDefinitionDesc
+msgid "These define activities that can be performed as part of content in this implementation guide."
+msgstr "这些定义了可作为本实施指南内容的一部分执行的活动。"
+
+# PlanDefinitionName
+#: PlanDefinitionName
+msgid "Knowledge Artifacts: Plan Definitions"
+msgstr "知识工件：计划定义"
+
+# PlanDefinitionDesc
+#: PlanDefinitionDesc
+msgid "These define workflows, rules, strategies, or protocols as part of content in this implementation guide."
+msgstr "这些定义了作为本实施指南内容一部分的工作流程、规则、策略或协议。"
+
+# MeasureName
+#: MeasureName
+msgid "Knowledge Artifacts: Measure"
+msgstr "知识工件：度量"
+
+# MeasureDesc
+#: MeasureDesc
+msgid "These define measures as part of content in this implementation guide."
+msgstr "这些定义了作为本实施指南内容一部分的度量。"
+
+# LibraryName
+#: LibraryName
+msgid "Knowledge Artifacts: Libraries"
+msgstr "知识工件：库"
+
+# LibraryDesc
+#: LibraryDesc
+msgid "These define logic, asset collections and other libraries as part of content in this implementation guide."
+msgstr "这些定义了作为本实施指南内容一部分的逻辑、资产集合和其他库。"
+
+# EvidenceName
+#: EvidenceName
+msgid "Knowledge Artifacts: Evidence"
+msgstr "知识工件：证据"
+
+# EvidenceDesc
+#: EvidenceDesc
+msgid "Indicates research or other information that justifies or support the information exchange defined in this implemetnation guide"
+msgstr "表示证明或支持本实施指南中定义的信息交换的研究或其他信息"
+
+# EvidenceVariableName
+#: EvidenceVariableName
+msgid "Knowledge Artifacts: Evidence Variables"
+msgstr "知识工件：证据变量"
+
+# EvidenceVariableDesc
+#: EvidenceVariableDesc
+msgid "Components of the research that justify or support the information exchange defined in this implementation guide"
+msgstr "证明或支持本实施指南中定义的信息交换的研究组成部分"
+
+# CitationName
+#: CitationName
+msgid "Knowledge Artifacts: Citations"
+msgstr "知识工件：引文"
+
+# CitationDesc
+#: CitationDesc
+msgid "Supports referencing artifacts defined in this implementation guide."
+msgstr "支持引用本实施指南中定义的工件。"
+
+# ResourceName
+#: ResourceName
+msgid "Structures: Additional Resources"
+msgstr "结构：附加资源"
+
+# ResourceDesc
+#: ResourceDesc
+msgid "'Additional' resources that are not yet published in the FHIR core specification."
+msgstr "尚未在 FHIR 核心规范中发布的“附加”资源。"
+
+# GraphDefinitionName
+#: GraphDefinitionName
+msgid "Structures: Graph Definitions"
+msgstr "结构：图定义"
+
+# GraphDefinitionDesc
+#: GraphDefinitionDesc
+msgid "These define collections of interrelated resources that are useful to pass around as a group."
+msgstr "这些定义了适合作为一个组一起传递的相互关联的资源集合。"
+
+# LogicalModelName
+#: LogicalModelName
+msgid "Structures: Logical Models"
+msgstr "结构：逻辑模型"
+
+# LogicalModelDesc
+#: LogicalModelDesc
+msgid "These define data models that represent the domain covered by this implementation guide in more business-friendly terms than the underlying FHIR resources."
+msgstr "这些定义了用比底层 FHIR 资源更贴近业务的术语来表示本实施指南所涵盖领域的数据模型。"
+
+# QuestionnaireName
+#: QuestionnaireName
+msgid "Structures: Questionnaires"
+msgstr "结构：问卷"
+
+# QuestionnaireDesc
+#: QuestionnaireDesc
+msgid "These define forms used by systems conforming to this implementation guide to capture or expose data to end users."
+msgstr "这些定义了符合本实施指南的系统用于向最终用户采集或展示数据的表单。"
+
+# AbstractProfileName
+#: AbstractProfileName
+msgid "Structures: Abstract Profiles"
+msgstr "结构：抽象配置文件"
+
+# AbstractProfileDesc
+#: AbstractProfileDesc
+msgid "These are profiles on resources or data types that describe patterns used by other profiles but cannot be instantiated directly.  I.e. instances can conform to profiles *based* on these abstract profiles, but do not declare conformance to the abstract profiles themselves."
+msgstr "这些是针对资源或数据类型的配置文件，描述其他配置文件所使用的模式，但不能直接实例化。即，实例可以符合*基于*这些抽象配置文件的配置文件，但不声明符合抽象配置文件本身。"
+
+# ResourceProfileName
+#: ResourceProfileName
+msgid "Structures: Resource Profiles"
+msgstr "结构：资源配置文件"
+
+# ResourceProfileDesc
+#: ResourceProfileDesc
+msgid "These define constraints on FHIR resources for systems conforming to this implementation guide."
+msgstr "这些为符合本实施指南的系统定义了对 FHIR 资源的约束。"
+
+# DataTypeName
+#: DataTypeName
+msgid "Structures: Data Type Profiles"
+msgstr "结构：数据类型配置文件"
+
+# DataTypeDesc
+#: DataTypeDesc
+msgid "These define constraints on FHIR data types for systems conforming to this implementation guide."
+msgstr "这些为符合本实施指南的系统定义了对 FHIR 数据类型的约束。"
+
+# ExtensionName
+#: ExtensionName
+msgid "Structures: Extension Definitions"
+msgstr "结构：扩展定义"
+
+# ExtensionDesc
+#: ExtensionDesc
+msgid "These define constraints on FHIR data types for systems conforming to this implementation guide."
+msgstr "这些为符合本实施指南的系统定义了对 FHIR 数据类型的约束。"
+
+# ValueSetName
+#: ValueSetName
+msgid "Terminology: Value Sets"
+msgstr "术语：值集"
+
+# ValueSetDesc
+#: ValueSetDesc
+msgid "These define sets of codes used by systems conforming to this implementation guide."
+msgstr "这些定义了符合本实施指南的系统所使用的代码集合。"
+
+# CodeSystemName
+#: CodeSystemName
+msgid "Terminology: Code Systems"
+msgstr "术语：代码系统"
+
+# CodeSystemDesc
+#: CodeSystemDesc
+msgid "These define new code systems used by systems conforming to this implementation guide."
+msgstr "这些定义了符合本实施指南的系统所使用的新代码系统。"
+
+# NamingSystemName
+#: NamingSystemName
+msgid "Terminology: Naming Systems"
+msgstr "术语：命名系统"
+
+# NamingSystemDesc
+#: NamingSystemDesc
+msgid "These define identifier and/or code system identities used by systems conforming to this implementation guide."
+msgstr "这些定义了符合本实施指南的系统所使用的标识符和/或代码系统标识。"
+
+# TerminologyCapName
+#: TerminologyCapName
+msgid "Terminology: Terminology Capabilities"
+msgstr "术语：术语能力"
+
+# TerminologyCapDesc
+#: TerminologyCapDesc
+msgid "Parameters that define the expansion of value sets used within the implementation guide."
+msgstr "定义本实施指南中所用值集扩展的参数。"
+
+# StructureMapName
+#: StructureMapName
+msgid "Terminology: Structure Maps"
+msgstr "术语：结构映射"
+
+# StructureMapDesc
+#: StructureMapDesc
+msgid "These define transformations to convert between data structures used by systems conforming to this implementation guide."
+msgstr "这些定义了在符合本实施指南的系统所使用的数据结构之间进行转换的变换。"
+
+# ConceptMapName
+#: ConceptMapName
+msgid "Terminology: Concept Maps"
+msgstr "术语：概念映射"
+
+# ConceptMapDesc
+#: ConceptMapDesc
+msgid "These define transformations to convert between codes by systems conforming with this implementation guide."
+msgstr "这些定义了符合本实施指南的系统在代码之间进行转换的变换。"
+
+# TestPlanName
+#: TestPlanName
+msgid "Testing Artifacts: TestPlans"
+msgstr "测试工件：测试计划"
+
+# TestPlanDesc
+#: TestPlanDesc
+msgid "These test plans are available to verify test coverage for this implementation guide."
+msgstr "这些测试计划可用于验证本实施指南的测试覆盖范围。"
+
+# TestScriptName
+#: TestScriptName
+msgid "Testing Artifacts: TestScripts"
+msgstr "测试工件：测试脚本"
+
+# TestScriptDesc
+#: TestScriptDesc
+msgid "These test definitions are available to FHIR test engines to verify systems are conforming to this implementation guide."
+msgstr "这些测试定义可供 FHIR 测试引擎用于验证系统是否符合本实施指南。"
+
+# ConditionDefinitionName
+#: ConditionDefinitionName
+msgid "Clinical: Condition Definitions"
+msgstr "临床：病症定义"
+
+# ConditionDefinitionDesc
+#: ConditionDefinitionDesc
+msgid "Formal descriptions of conditions and symptoms relevant to the use of this implementation guide."
+msgstr "与本实施指南的使用相关的病症和症状的正式描述。"
+
+# ObservationDefinitionName
+#: ObservationDefinitionName
+msgid "Clinical: Observation Definitions"
+msgstr "临床：观察定义"
+
+# ObservationDefinitionDesc
+#: ObservationDefinitionDesc
+msgid "Formal descriptions of types of observations relevant to the use of this implementation guide."
+msgstr "与本实施指南的使用相关的观察类型的正式描述。"
+
+# SpecimenDefinitionName
+#: SpecimenDefinitionName
+msgid "Clinical: Specimen Definitions"
+msgstr "临床：标本定义"
+
+# SpecimenDefinitionDesc
+#: SpecimenDefinitionDesc
+msgid "Formal descriptions of the types of specimens relevant to the use of this implementation guide."
+msgstr "与本实施指南的使用相关的标本类型的正式描述。"
+
+# ChargeItemDefinitionName
+#: ChargeItemDefinitionName
+msgid "Clinical: Charge Item Definitions"
+msgstr "临床：收费项目定义"
+
+# ChargeItemDefinitionDesc
+#: ChargeItemDefinitionDesc
+msgid "Definitions of chargeable costs relevant to the use of this implementation guide."
+msgstr "与本实施指南的使用相关的可收费费用的定义。"
+
+# ExampleScenarioName
+#: ExampleScenarioName
+msgid "Example: Example Scenarios"
+msgstr "示例：示例场景"
+
+# ExampleScenarioDesc
+#: ExampleScenarioDesc
+msgid "These define groups of interrelated examples that demonstrate one or more of the workflows supported by this implementation guide."
+msgstr "这些定义了若干组相互关联的示例，用于演示本实施指南所支持的一个或多个工作流程。"
+
+# ExampleName
+#: ExampleName
+msgid "Example: Example Instances"
+msgstr "示例：示例实例"
+
+# ExampleDesc
+#: ExampleDesc
+msgid "These are example instances that show what data produced and consumed by systems conforming with this implementation guide might look like."
+msgstr "这些示例实例展示了符合本实施指南的系统所生成和使用的数据可能的样子。"
+
+# ExampleSupportingName
+#: ExampleSupportingName
+msgid "Example: Example Supporting Instances"
+msgstr "示例：支持性示例实例"
+
+# ExampleSupportingDesc
+#: ExampleSupportingDesc
+msgid "These are example instances that are not governed by this implementation guide, but which are necessary to support other examples defined in the IG."
+msgstr "这些示例实例不受本实施指南约束，但为支持本指南中定义的其他示例所必需。"
+
+# OtherName
+#: OtherName
+msgid "Other"
+msgstr "其他"
+
+# OtherDesc
+#: OtherDesc
+msgid "These are resources that are used within this implementation guide that do not fit into one of the other categories."
+msgstr "这些是本实施指南中使用的、不属于其他任何类别的资源。"
