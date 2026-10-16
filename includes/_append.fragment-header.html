@@ -1,0 +1,28 @@
+<div id="project-nav">
+    <a id="who-logo" no-external="true" href="index.html">
+      {% if site.data.fhir.ig.status == "active" %}
+<img height="50" style="margin:7px" alt="Welcome on standards website" src="{{site.data.info.assets}}assets/images/h-logo-blue.svg"/>
+      {% endif %}
+    </a>
+</div>
+{% comment %} Status watermark behind the IG title (the base template's #ig-status carries no status class) {% endcomment %}
+{% if site.data.fhir.ig.status == "draft" or site.data.fhir.ig.status == "retired" %}
+{% assign watermark = site.data.fhir.ig.status | upcase %}
+<style type="text/css">
+#ig-status {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150px' height='150px'><rect width='800%' height='100%' fill='transparent' /><text transform='translate(30, {% if watermark == 'DRAFT' %}50{% else %}60{% endif %}) rotate(-35)' fill='rgba(245,45,45,0.5)' font-family='Arial' font-weight='bold' font-size='20'>{{watermark}}</text></svg>");
+  background-size: calc(50% / 5) 100px;
+  background-repeat: repeat-x;
+}
+</style>
+{% endif %}
+{% if site.data.features.feedback %}
+<div id="feedback-config"
+ data-repo-owner="{{ site.data.github.repo_owner }}"
+ data-repo-name="{{ site.data.github.repo_name }}"
+ data-repo-source="{{ site.data.features.feedback[0].form | default: '' }}"
+ data-issue-label="{{ site.data.features.feedback[0].issueLabel | default: 'feedback' }}"
+ data-feedback-options="{{ site.data.features.feedback | jsonify | escape }}"
+ style="display:none;"></div>
+<script type="text/javascript" src="{{site.data.info.assets}}assets/js/feedback.js"></script>
+{% endif %}

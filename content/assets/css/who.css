@@ -343,80 +343,6 @@ h6 {
 }
 
 
-.navbar-right-container {
-  display: flex;
-  align-items: center;
-  /* Vertically center the items */
-  justify-content: flex-end;
-  /* Align items to the end (right) */
-  height: 100%;
-  /* Make sure the container stretches full height */
-}
-
-/* Style for the language selector to auto-margins push it to the right */
-.language-selector {
-  margin-left: auto;
-  /* This pushes the language selector to the right */
-}
-
-
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  /* This will put space between the two children divs */
-  align-items: center;
-  /* This will vertically center the contents */
-}
-
-.language-selector {
-  background-color: #00477d;
-  /* Blue background */
-  color: white;
-  /* White text */
-  display: flex;
-  align-items: center;
-  padding: 5px 10px;
-  /* Adjust padding as needed */
-  border-radius: 5px;
-  /* Optional: if you want rounded corners */
-}
-
-.language-selector label {
-  margin-right: 10px;
-  /* Spacing between label and the select box */
-}
-
-.language-selector select {
-  background-color: #00477d;
-  /* Blue background */
-  color: white;
-  /* White text */
-  border: none;
-  /* Remove default border */
-  -webkit-appearance: none;
-  /* Remove default arrow from webkit browsers */
-  -moz-appearance: none;
-  /* Remove default arrow from Mozilla browsers */
-  appearance: none;
-  /* Remove default arrow */
-  padding: 5px;
-  /* Adjust padding as needed */
-  margin-right: 5px;
-  /* Space before the icon */
-}
-
-.language-selector .fa-caret-down {
-  color: white;
-  /* White icon */
-}
-
-/* Optional: add custom styles for the select box on focus */
-.language-selector select:focus {
-  outline: none;
-  /* Removes the default focus outline */
-}
-
-
 body {
   font-family: 'Noto Sans', sans-serif !important;
   height: fit-content !important
@@ -530,9 +456,14 @@ div.markdown-toc {
   color: var(--footer-text-color) !important;
 }
 
-/* Ensure the navbar doesn't collapse into the space */
+/* WHO layout: menu bar above the IG header (the base template puts it below) */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 #segment-navbar {
-  flex: 1 100%;
+  order: -1;
 }
 
 #segment-breadcrumb>div #segment-navbar>.container,
@@ -564,19 +495,7 @@ div.markdown-toc {
 }
 
 
-#ig-status.ig-status-draft {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150px' height='150px'><rect width='800%' height='100%' fill='transparent' /><text transform='translate(30, 50) rotate(-35)' fill='rgba(245,45,45,0.5)' font-family='Arial' font-weight='bold' font-size='20'>DRAFT</text></svg>");
-  background-size: calc(50% / 5) 100px;
-  background-repeat: repeat-x;
-}
-
-
-#ig-status.ig-status-retired {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150px' height='150px'><rect width='800%' height='100%' fill='transparent' /><text transform='translate(30, 60) rotate(-35)' fill='rgba(245,45,45,0.5)' font-family='Arial' font-weight='bold' font-size='20'>RETIRED</text></svg>");
-  background-size: calc(50% / 5) 100px;
-  background-repeat: repeat-x;
-}
-
+/* Draft/retired watermark on #ig-status: see includes/_append.fragment-header.html */
 
 
 
