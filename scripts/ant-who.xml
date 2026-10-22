@@ -16,6 +16,9 @@
   <!-- Import the base template's ant.xml -->
   <import file="ant.xml" as="base"/>
 
+  <!-- Environment variables, read as env.* properties -->
+  <property environment="env"/>
+
   <!-- Python executable: "python" on Windows, "python3" elsewhere -->
   <condition property="python.exe" value="python" else="python3">
     <os family="windows"/>
@@ -82,7 +85,17 @@
   <!-- Post-Check: runs after validation/QA checks -->
   <!-- All scripts run in alphabetical order, using current working directory -->
   <!-- (matching GitHub workflow behavior - no ig.root argument passed) -->
-  <target name="onCheck.runPostCheckScripts" extensionOf="onCheck.extend">
+  <!--
+    Skipped when the build sets WHO_IG_OWN_POST_CHECK: the IG's own workflow
+    then runs its current schema, JSON-LD and DAK API generators after the
+    Publisher, writing at the output root. Running these copies as well
+    publishes a second, older-format copy of every sidecar under schemas/
+    with the same $id (litlfred/smart-base#99).
+  -->
+  <target name="onCheck.skipPostCheckScripts" extensionOf="onCheck.extend" if="env.WHO_IG_OWN_POST_CHECK">
+    <echo message="WHO_IG_OWN_POST_CHECK is set: the IG runs its own post-check generators; skipping ${ig.scripts}/post-check"/>
+  </target>
+  <target name="onCheck.runPostCheckScripts" extensionOf="onCheck.extend" unless="env.WHO_IG_OWN_POST_CHECK">
     <echo message="*******************************************************"/>
     <echo message="*** onCheck.runPostCheckScripts TARGET IS RUNNING! ***"/>
     <echo message="*******************************************************"/>
